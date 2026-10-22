@@ -1,0 +1,85 @@
+
+<!--<app-meshprinting></app-meshprinting> 
+<app-cabprinting></app-cabprinting>
+<app-meshprinting></app-meshprinting> -->
+
+<nav id="topnavbar">
+  <header>
+    <div>
+      <div class="page-header">
+          <div class="row" >
+            <div class="col-md-3">
+               <img src="assets/img/NSH.jpeg" alt="" style=" width: 35%;height: 55px; padding: 5px 0px 5px 10px;" />
+            </div>
+            <div class="col-md-6 text-center" style="color: #ffffff; padding-top: 5px;">
+              <h2>Manufacturing Execution System </h2>
+            </div>
+            <div class="col-md-3 text-end" style="color: #ffffff;line-height: 60px;">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+              </svg> 
+               <label style="margin-right:20px ;"> 
+                   {{ this.Value }}</label> 
+                    <button style="margin-right:10px ; background: none; border: none; color: #ffffff;"  (click)="Logout()"  >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                </svg>
+              </button> 
+
+            </div>
+          </div>
+      </div>
+    </div>
+  </header>
+</nav>
+<div style="margin-top: 62px;">
+<div class="container" style="margin-bottom:10px ; background-color: #80808033;">
+  <div class="row">
+       <div class="col-md-1" style="float:left ;">
+        <img src="assets/img/back-icon.png"  alt="" style="width: 27px; height:27px ; " (click)="GoBack()" />
+      </div>
+    <div class="d-flex justify-content-start col-md-4 TagHead"  ><span style="margin-right:5px ; ">{{PageName | uppercase}}</span>{{title}}</div>
+    <div class="col-md-6"> 
+      <ul class="navbar-nav">
+        <li class="navbar-item">
+          <!-- <a  [routerLink]="['/cab/{{this.user}}']" class="btn linkbutton m-1" (click)="ShowPageName('CAB')" [class.active]="setclass_cab">CAB</a>
+          <a  [routerLink]="['/mesh/{{this.user}}']" class="btn linkbutton m-1" (click)="ShowPageName('MESH')" [class.active]="setclass_mesh">MESH</a>
+          <a  [routerLink]="['/snc/{{this.user}}']" class="btn linkbutton m-1" (click)="ShowPageName('SNC')" [class.active]="setclass_snc">SNC</a>
+          <a  [routerLink]="['/prc/{{this.user}}']" class="btn linkbutton m-1" (click)="ShowPageName('PRC')" [class.active]="setclass_prc">PRC</a>
+          <a  [routerLink]="['/bpc/{{this.user}}']" class="btn linkbutton m-1" (click)="ShowPageName('BPC')" [class.active]="setclass_bpc">BPC</a>
+          <a  [routerLink]="['/carpet/{{this.user}}']" class="btn linkbutton m-1" (click)="ShowPageName('CARPET')" [class.active]="setclass_carpet">CARPET</a>
+          <a  [routerLink]="['/export/{{this.user}}']" class="btn linkbutton m-1" (click)="ShowPageName('EXPORT')" [class.active]="setclass_export">EXPORT</a>
+          <a  [routerLink]="['/bcp/{{this.user}}']" class="btn linkbutton m-1" (click)="ShowPageName('BCP')" [class.active]="setclass_bcp">BCP</a> 
+  -->
+          <button type="button" routerlink='cab' class="btn linkbutton m-1" (click)="showpagename('cab')" [class.active]="setclass_cab">cab</button>
+          <button type="button" routerlink="mesh" class="btn linkbutton m-1" (click)="showpagename('mesh')" [class.active]="setclass_mesh">mesh</button>
+          <button type="button" routerlink="snc" class="btn linkbutton m-1" (click)="showpagename('snc')" [class.active]="setclass_snc">snc</button>
+          <button type="button" routerlink="prc" class="btn linkbutton m-1" (click)="showpagename('prc')" [class.active]="setclass_prc">prc</button>
+          <button type="button" routerlink="bpc" class="btn linkbutton m-1" (click)="showpagename('bpc')" [class.active]="setclass_bpc">bpc</button>
+          <button type="button" routerlink="carpet" class="btn linkbutton m-1" (click)="showpagename('carpet')" [class.active]="setclass_carpet">carpet</button>
+          <button type="button" routerlink="export" class="btn linkbutton m-1" (click)="showpagename('export')" [class.active]="setclass_export">export</button>
+          <button type="button" routerlink="bcp" class="btn linkbutton m-1" (click)="showpagename('bcp')" [class.active]="setclass_bcp">bcp</button>
+          <button type="button" routerlink="cabmanual" style="width: 20%;" class="btn linkbutton m-1" (click)="showpagename('cabmanual')" [class.active]="setclass_cabmaunal">cab_manual</button>
+          <button type="button" routerlink="samplemesh" style="width: 20%;" class="btn linkbutton m-1" (click)="showpagename('samplemesh')" [class.active]="setclass_meshmanualtag" >mesh manual</button>  
+          <button type="button" routerlink="samplemeshtaggeneration" style="width: 39%;" class="btn linkbutton m-1" (click)="showpagename('samplemeshtaggeneration')" [class.active]="setclass_samplemeshtaggeneration" >sample mesh tag generation</button>
+         
+          <!-- <button type="button" routerLink="cabmanual" class="btn linkbutton m-1" (click)="ShowPageName('CABMANUAL)" [class.active]="setclass_cabmaunal">CABMANUAL</button> 
+       
+          routerLink="/cab/user/={{this.user}}"  /user{{this.user}} -->
+          <!-- <button type="button" routerLink='cab/{{this.UserId}}' class="btn linkbutton m-1" (click)="ShowPageName('CAB')" [class.active]="setclass_cab">CAB</button> -->
+
+          <!-- [routerLink]="['promotiondetail']" [queryParams]="{ id: {{id}} }" -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+ 
+<router-outlet></router-outlet>
+
+
+
+ 

@@ -1,0 +1,27 @@
+ 
+
+
+.linkbutton,.active{
+    background-color: lightblue;
+    color: #fff;
+    width: 80px;
+    height: 25px;
+    float: left;
+    line-height: 10px;
+    margin-left: 5px;
+    color: #000;
+    border-bottom: 2px solid #808080;
+    font-weight: 500;
+  }
+
+  .active{
+    background-color: rgb(132, 209, 235);
+    box-shadow:3px #808080;
+  }
+
+  .TagHead{
+    font-size:20px ; 
+    color: rgb(4, 101, 133);
+    font-weight: 500;
+  }
+ 

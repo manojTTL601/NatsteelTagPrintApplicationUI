@@ -1,0 +1,120 @@
+<div class="container" style="text-align: center;" >
+  
+        <div class="row text-middle" style="margin-top: 50px;">
+            <!-- <p style="color: red;">*Enter SO/ITEM Number</p> -->
+            <div class="col-md-2 text-middle" for="sonumber"  >
+                <label><span style="color: red; font-weight: bold;">*</span>Enter SO Number :</label>
+            </div>
+                <div class="col-md-4"  >
+                <input type="text" class="form-control"  [(ngModel)]="var1"
+                  placeholder="Enter SO Number">
+            </div>
+            
+            <div class="col-md-2 text-middle">
+                <label>Enter Item Number :</label>
+            </div>
+                <div class="col-md-4">
+                <input type="text" class="form-control"  [(ngModel)]="var2" for="itemnumber"
+                 placeholder="Enter Item Number" >
+            </div>
+         
+        </div>
+    
+
+        <div class="row text-middle" style="margin-top: 50px;">
+            <!-- <p style="color: red;">*Enter SO/ITEM Number</p> -->
+            <div class="col-md-2 text-middle"  >
+                <label><span style="color: red; font-weight: bold;">*</span>Select Printername:</label>
+            </div>
+                <div class="col-md-4"  >
+                    <select name="Printername" class="form-control customDropdown" style="height: 35px;"  #Printername="ngModel" 
+                    [(ngModel)]="selectPrinterName">
+                    <option value="{{this.pname1}}">{{this.pname1}}</option>
+                    <option value="{{this.pname2}}">{{this.pname2}}</option>    
+                    <option value="{{this.pname3}}">{{this.pname3}}</option>    
+                </select>
+            </div>
+            <!-- <div class="col-md-6">
+                Enter Additional Remark :<input type="text"  [(ngModel)]="var2"
+                style="margin-left: 15px; width: 50%;" placeholder="Enter Item Number" >
+            </div> -->
+            <div class="col-md-2 text-middle">
+                <label><span style="color: red; font-weight: bold;">*</span>Select TemplateName:</label>
+            </div>
+                <div class="col-md-4">
+                    <select name="TemplateFileId" class="form-control customDropdown" style="height: 35px;" #TemplateFileId="ngModel" 
+                    [(ngModel)]="selectTemplateName">
+                    <option [ngValue]="lib.Name" *ngFor="let lib of this.GetLibrarian">
+                        {{lib.Name}}
+                    </option>    
+                </select>
+            </div>
+         
+        </div>
+
+        
+        <div style="margin-top: 40px; margin-bottom: 20px; text-align: center;">
+            <button type="button" (click)="Submit()" class="btn Center buttonPopUp">Submit</button>
+        </div>
+        <div>
+            <p [hidden]="IsWait">Please wait...</p>
+        </div>
+        <div class="table-responsive">
+            <table class="table border" style="margin-top: 15px">
+                <thead>
+                    <tr>
+                        <th scope="col">Sr. No.</th>
+                        <th scope="col">So Number</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Project Name</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Size</th>
+                        <th scope="col">PO</th>
+                        <th scope="col">Confirm Date</th> 
+                        <!-- <th scope="col">Delete</th> -->
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row-action edit-action"  *ngFor="let row of sodetails; let i=index">
+                        <td >{{i + 1}}</td>
+                        <td>{{row.SONumber}}</td>
+                        <td>{{row.CustomerName}}</td>
+                        <td>{{row.ProjectName}}</td>
+                        <td>{{row.Product}}</td>
+                        <td>{{row.Qty}}</td>
+                        <td>{{row.Size}}</td>
+                        <td>{{row.PO}}</td>
+                        <td>{{row.ConfirmDate}}</td>
+                        <!-- <td>{{row.editFieldName}}</td> -->
+                    </tr>
+
+                </tbody>
+
+
+            </table>
+
+        </div>
+
+     <div style="margin-top: 10px; margin-bottom: 10px; text-align: center;">
+        <a class="btn buttonPopUp  m-1" [hidden]="IsDownload" href={{this.getfile}}>Download</a>
+        <input type="button" [disabled]="IsDisabled" class="btn Center buttonPopUp" value="Print Tags" (click)="printdata()">
+        
+    </div>
+    <div style="margin-bottom: 40px;">
+        <p [hidden]="IsPrintingStarted" style="background-color: yellow; font-weight: bold;">Printing started for {{this.var1}}</p>
+        <p [hidden]="IsPrintingFailed" style="background-color: red; font-weight: bold; color: white;">Printing failed for {{this.var1}}</p>
+        <p [hidden]="IsPrintingCompleted" style="background-color: rgb(92, 194, 62); font-weight: bold;">Printing completed for {{this.var1}}</p>
+        
+    </div>
+    <div class="row mt-1 IdLog" style="border-radius: 5px; height: auto;  border: 1px solid #808080; margin-top:100px;">
+        <div  style="margin:0px ;padding: 0px;">
+            <!-- <p *ngIf="isPrintingStarted" style="margin: 0px; padding: 0px;">Printing Started...</p>
+            <p *ngIf="isPrintingCompleted" style="margin: 0px; padding: 0px;">Printing Completed.</p>
+            <a onClick="openTab(this)" href="#" name="D:\Completed-MSH115-TRD1982-82.pdf">Download Pdf</a> -->
+        </div>
+       
+    </div>
+    
+</div>

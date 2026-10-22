@@ -1,0 +1,1309 @@
+﻿
+
+@media screen and (max-width: 1755px) {
+  #headerText
+  {
+      left: 0px;
+    right: 0px;
+    width: auto;
+    position: absolute;
+    margin: auto;
+    font-size: x-large;
+    padding-top: 32px;
+  }
+    
+  
+}
+
+/*Ravi 3-12-19*/
+.Back_btn {
+    float: left;
+    height: 35px;
+    background-color: initial;
+    margin-left: 0px !IMPORTANT;
+    width: 4% !IMPORTANT;
+    border-color: #F9F9F9
+}
+
+
+.col-xs-2 {
+    margin-left: -0.8%;
+}
+#frmdate input, #tdate input {
+    font-size: 14px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border-color: black;
+    border-width: 1.3px;
+}
+a.btn-default {
+    width: auto;
+}
+
+.modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+}
+    .dropdownBorder {
+    border: 1px solid #7D7D7D;
+    border-radius: 5px;
+}
+.dropDownbtn {
+  /*margin-bottom: 15px;*/
+ width:100%;
+ margin: 1%;
+     margin-top: 2%;
+}
+
+.div_mainButtons {
+      margin-bottom: 15px;
+    width: 100%;
+    margin-top: -39px;
+    position: relative;
+    padding-right: 15px;
+    padding-bottom: 30px;
+}
+
+/*Veervar 18-10-19*/
+.border_line {
+    /*width: 41.66666667%;*/
+    width:100%;border-bottom: 1pt solid #127DA7; border-top: none;/*padding-right: 10px;*/
+        /*padding-bottom: 10px;*/
+        height:60px;
+
+
+  }
+
+
+/*Veervar 18-10-19*/
+.main_lable{font-size: 18px;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    padding-left: 5%;
+    padding-top: 10px;
+    margin-top: 0px;
+}
+
+
+.navbar_mes{float: left;
+    height: 32px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.div_view {
+    float:initial;
+    margin-left: 10px;   
+    height: 32px;
+   width:6%;
+    text-align: center;
+    background: linear-gradient(to right,#0099cc, #006080);
+    color:white;
+}
+
+
+.logo_border{
+        background-color: white;
+    padding: 5px;   
+    width: 16%;
+    height: 62px;
+}
+
+.header-navbar1 {
+    background: linear-gradient(to right,#0099cc, #006080);
+    border: 0 none;
+    border-radius: 0;
+    background-clip: padding-box;
+    /* margin-top: 0%; */
+    /* min-height: 80px; */
+    box-shadow: 0px 1px 3px 0 rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 99;
+}
+
+
+.navbar-brand1 {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+.container1 {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+}
+
+.calender{    margin-top: 7%;
+    margin-left: 12%;
+    width: 63%;vertical-align: middle;
+    margin-bottom: 0px;
+    background-color:lightblue;
+}
+
+
+.clsMandatory {
+    color: Red;
+}
+
+
+.required:after {
+    content: " *";
+    color: red;
+}
+.lblRecordCount {
+    color: #484848;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: verdana;
+}
+
+
+.popup{    font-size: 11px;
+       width:80%;
+}
+
+.tdpopup{width: 15%;
+    padding-left: 1%;}
+
+
+/*************CSS for Trolley Dashboard dynamic div*/
+
+
+
+#wrapper1 {
+    width: 100%;
+    height: 850px;
+    margin-top: 1px;
+    margin-left: 9px;
+    margin-right: auto;
+    /*background: #000000;*/
+}
+.row {
+    width: auto;
+    /*height: 100px;*/
+    /*background: #313131;*/
+}
+.square {
+    width: 11%;
+    height: 100px;
+    margin: 0px;
+    outline: 1px solid;
+    display: inline-block;
+    /*float: left;*/
+    background: #FFFFFF;
+}
+
+.square_header{
+    text-align: center;border: 1px solid black;height: 35px;
+}
+.ScrollStyle
+{
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+/* Pop up */
+/*#region Add Edit Dialogue Popup Header Styling*/
+.modal-header 
+{
+    background: linear-gradient(to right,#0099cc,#006080);
+}
+.close {
+    color: #fff;
+    opacity: .0.5;
+    
+}
+ 
+
+.close:hover {
+    color: #fff;
+    opacity: 1;
+}
+
+.modal-header .close {
+    margin-top: 5px;
+}
+
+.modal-title {
+    font-weight: 700;
+    color: white;
+    font-size: 145%;
+}
+
+.modal-footer{
+   
+} 
+.modal-header{
+    height:41px;
+    padding:5px;
+    align-content:center;
+}
+
+.modal-body {
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 500px;
+    align-content: center
+}
+
+
+.modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+}
+
+/* #endregion */
+/******************************************************########**********Hearder*************############**********************************************************************/
+.header {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}
+
+
+.labelFont {
+    font-size: 100%;
+    color: black;
+    width: 30%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    padding-left: 0;
+    padding-top: 2%;
+}
+
+.labelDate {
+    font-size: 115%;
+    color: black;
+    width: 30%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    padding-left: 0;
+    padding-top: 2%;
+    margin: 0px;
+    display: inline-block;
+}
+
+.dateLabel {
+    margin-top: 2%;
+    padding-left: 60%;
+}
+
+.textBox{
+    width:100%
+}
+
+.textBoxDate {
+    width: 53%
+}
+
+.text-danger {
+    font-size: smaller;
+    font-weight: normal;
+}
+
+.textBoxView {
+    width: 15%
+}
+.textBoxViewB {
+    width: 30%
+}
+.textBoxViewV {
+    width: 27%
+}
+
+/*Veervar modified on 18-10-19*/
+.buttonPopUp {
+    background-color: lightblue;
+    border-color: #607d8b;
+    color: #fff;
+    width: auto;
+    min-width:70px;
+    float: right;
+    margin-left: 5px;
+    font-size: 100%;
+    color: #000;
+}
+
+.btnWidth {
+    margin-bottom: 0;
+    margin-left: 14px;
+}
+
+.form-control_RCM {
+    display: block;
+    width: 50%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.tableRCN {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+    -webkit-box-sizing: border-box;
+    vertical-align: middle;
+    border-top: 0px solid #e7ebee;
+    padding: 12px 8px;
+}
+
+.HeaderRCM {
+    float: left;
+    width: 17%;
+    margin-top: 1%;
+}
+.frm {
+   width:100%;
+   height:75px;
+   border-bottom: 1pt solid #127DA7; 
+   border-top: none;
+}
+
+
+
+table.dataTable thead .sorting, 
+table.dataTable thead .sorting_asc, 
+table.dataTable thead .sorting_desc {   /*for hiding extra sort icon in datatable*/
+    background : lightblue;
+}
+
+   #tableGrid_filter > label{           /*for changing format of search*/
+       font-size:15px;
+       font-weight:bold;
+       
+   }
+   #tableGrid_length{                   /*for changing format of num item per page dropdown*/
+       font-size:17px;
+       margin-bottom:10px;
+   }
+   #tableGrid th, #tableGrid td:nth-child(1), #tableGrid td:nth-child(2), #tableGrid td {
+       text-align:center;
+   }
+
+   #tableGrid {
+       padding:0px;
+   }
+
+
+#tableGrid1_filter > label { /*for changing format of search*/
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#tableGrid1_length { /*for changing format of num item per page dropdown*/
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+#tableGrid1 th, #tableGrid1 td:nth-child(1), #tableGrid1 td:nth-child(2), #tableGrid1 td {
+    text-align: center;
+}
+
+#tableGrid1 {
+    padding: 0px;
+}
+
+
+.btnPrint {
+    float: none;
+    margin-left: 60px;
+    margin-top: 12px;
+    height: 32px;
+    width: 85px;
+    text-align: center;
+}
+.btnView {
+    float: none;
+    height: 32px;
+    width: 85px;
+    text-align: center;
+}
+
+.labelDateFG {
+    font-size: 115%;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    padding-left: 0;
+    padding-top: 2%;
+    margin: 0px;
+    display: inline-block;
+}
+
+.srNoWidth {
+    width: 6%;
+}
+
+.editIcon {
+    border: 1px solid #979797;
+    background: linear-gradient(to bottom, #fff 0%, #dcdcdc 100%); 
+    border-radius: 2px;
+    box-sizing: border-box; 
+    display: inline-block;min-width: 1.5em; 
+    padding: 0.5em 1em; 
+    margin-left: 2px; 
+    border-radius: 2px;
+}
+
+.umSize {
+    padding-right: 5px;
+    color: grey;
+}
+
+.Viewbtn {
+    border-color: gray;
+    margin-top: 1.2%;
+    width: 40%;
+    color: white;
+}
+.btnSave {
+    padding-bottom: 54px;
+    background-color: lightblue;
+    border-color: #607d8b;
+    color: #0a0000;
+    width: 6%;
+    float: left;
+    margin-left: 20em;
+    font-size: 100%;
+    border: none;
+    padding: 6px 12px;
+    border-bottom: 2px solid;
+    transition: border-color 0.1s ease-in-out 0s,background-color 0.1s ease-in-out 0s;
+    outline: none;
+    border-radius: 3px;
+    background-clip: padding-box;
+    font-weight: bold;
+    padding: 6px 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+
+
+
+
+/* //added by Sheetal J//The card container for Menu and Submenu */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px; /* for 3D effect */
+ 
+  padding: 15px;
+  width: 165px;
+  height: 160px;
+
+ 
+
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  /*transform-style: preserve-3d;*/
+
+
+  
+  border-radius: 25px;
+  border: 2px solid #0099cc;
+   /*border: 2px solid lightblue;*/
+  padding: 5px;
+  /*width: 200px;
+  height: 150px;*/
+
+  -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
+  -moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
+  box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
+  
+}
+
+ Do an horizontal flip when you move the mouse over the flip box container 
+.flip-card:hover .flip-card-inner {
+  /*transform: rotateY(180deg);*/
+  /*transition: width 2s;*/
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: transparent;
+  color: black;
+   position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  
+}
+
+.btnviewAndon {
+    border-color: gray;
+    margin-top: 1.2%;
+    width: 40%;
+    color: white;
+}
+
+
+/*****************************************************************************************************************************************************/
+
+/*#region Organizational Chart*/
+.tree * {
+    margin: 0;
+    padding: 0;
+}
+
+.tree ul {
+    padding-top: 20px;
+    position: relative;
+    -transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+.tree li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0 5px;
+    -transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+    /*We will use ::before and ::after to draw the connectors*/
+
+    .tree li::before, .tree li::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 50%;
+        border-top: 2px solid #696969;
+        width: 50%;
+        height: 20px;
+    }
+
+    .tree li::after {
+        right: auto;
+        left: 50%;
+        border-left: 2px solid #696969;
+    }
+
+    /*We need to remove left-right connectors from elements without 
+any siblings*/
+    .tree li:only-child::after, .tree li:only-child::before {
+        display: none;
+    }
+
+    /*.station_collapse::after, .station_collapse::before {
+    display: none;
+}*/
+    /*Remove space from the top of single children*/
+    .tree li:only-child {
+        padding-top: 0;
+    }
+
+    /*Remove left connector from first child and 
+right connector from last child*/
+    .tree li:first-child::before, .tree li:last-child::after, .station_collapse {
+        border: 0 none;
+    }
+    /*Adding back the vertical connector to the last nodes*/
+    .tree li:last-child::before {
+        border-right: 2px solid #696969;
+        border-radius: 0 5px 0 0;
+        -webkit-border-radius: 0 5px 0 0;
+        -moz-border-radius: 0 5px 0 0;
+    }
+
+    .tree li:first-child::after {
+        border-radius: 5px 0 0 0;
+        -webkit-border-radius: 5px 0 0 0;
+        -moz-border-radius: 5px 0 0 0;
+    }
+
+/*Time to add downward connectors from parents*/
+.tree ul ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px solid #696969;
+    width: 0;
+    height: 20px;
+}
+
+.tree li a {
+    height: 43%;
+    /*width: 200px;*/
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: white;
+    color: #231616;
+    font-family: arial, verdana, tahoma;
+    font-size: 11px;
+    display: inline-block;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    -transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+}
+
+    /*Time for some hover effects*/
+    /*We will apply the hover effect the the lineage of the element also*/
+    .tree li a:hover, .tree li a:hover + ul li a {
+        background: #cbcbcb;
+        color: #000;
+    }
+        /*Connector styles on hover*/
+        .tree li a:hover + ul li::after,
+        .tree li a:hover + ul li::before,
+        .tree li a:hover + ul::before,
+        .tree li a:hover + ul ul::before {
+            border-color: #94a0b4;
+        }
+
+.container-fluid {
+    font-size: large;
+}
+
+.stationVerticalTree{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.subcode {
+    border-radius: 3px;
+    background-clip: padding-box;
+    border-color: #e7ebee;
+    border-width: 2px;
+    box-shadow: none;
+    font-size: 13px;
+    display: block;
+    width: 250px;
+    height: 30%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    height: 100px;
+    overflow: auto;
+}
+
+/*.subcode {
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 2%
+}*/
+
+.dateCertificate {
+    width: 100%;
+    float: left;
+    background-clip: padding-box;
+    border-color: #e7ebee;
+    border-width: 2px;
+    box-shadow: none;
+    font-size: 13px;
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+
+.dateAndon {
+    width: 45%;
+    float: left;
+    background-clip: padding-box;
+    border-color: #e7ebee;
+    border-width: 2px;
+    box-shadow: none;
+    font-size: 13px;
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.timeAndon {
+    width: 52%;
+    float: right;
+    border-radius: 3px;
+    background-clip: padding-box;
+    border-color: #e7ebee;
+    border-width: 2px;
+    box-shadow: none;
+    font-size: 13px;
+    display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.btnviewAndon {
+    border-color: gray;
+    margin-top: 1.2%;
+    width: 40%;
+    color: white;
+}
+
+
+
+
+
+
+
+/* //added by Sheetal J//The card container for Menu and Submenu */
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px; /* for 3D effect */
+ 
+  padding: 20px;
+  width: 190px;
+  height: 160px;
+  
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+   
+  border-radius: 25px;
+  border: 2px solid #0099cc;
+  padding: 5px;
+
+
+  -webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
+  -moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
+  box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.16);
+  
+}
+
+ Do an horizontal flip when you move the mouse over the flip box container 
+.flip-card:hover .flip-card-inner {
+  /*transform: rotateY(180deg);*/
+  /*transition: width 2s;*/
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: transparent;
+  color: black;
+   position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: transparent;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+h3, .h3 {
+    font-size: 25px;
+  
+   
+}
+.silver {
+    color: black;
+    padding-left: 30px;
+    margin-top:auto;
+   
+}
+
+h3::first-letter {
+ font-weight: bold;
+  
+}
+
+.menu_icon {
+     
+    text-align: center;
+   display: inline-block;
+   color:#0099cc;
+    padding-top: 10px;
+}
+
+.menu_icon i {
+     
+   line-height: 40px;
+   color:#6e7679;
+}
+
+.menu_icon h5 {
+    text-align: center; 
+    word-wrap: break-word; 
+    line-height: 22px;
+    width:95%; 
+ color:#006080;
+ text-shadow: 2px 2px 5px lightblue;
+
+}
+
+.flip-card:hover
+{
+   border-radius: 25px;
+  border: 2px solid #0099cc;
+  padding: 0px;
+  -webkit-box-shadow: 0px 0px 19px 0px #006080;
+  -moz-box-shadow: 0px 0px 19px 0px #006080;
+  box-shadow: 0px 0px 19px 0px #006080;
+
+
+}
+
+.silver:hover
+{
+ 
+   -webkit-box-shadow: 0px 0px 19px 0px #006080;
+  -moz-box-shadow: 0px 0px 19px 0px #006080;
+  box-shadow: 0px 0px 19px 0px #006080;
+
+
+}
+
+/*view configuration row class*/
+.rScroll {
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 127%;
+}
+
+.vConfigFontsize {
+    font-size: smaller;
+}
+
+.fSavebtn {
+    height: 10%;
+    width: 7%;
+}
+.wViewBtn {
+    border-color: gray;
+    margin-top: 1.2%;
+    width: 23%;
+    color: white;
+}
+
+.tdWidth {
+    width: 22%;
+}
+
+.DoubleBorder {
+    text-align: center;
+    width: 100px;
+    border-style: double;
+}
+.dvScroll {
+    background-color: white;
+    float: left;
+    width: 100%;
+    overflow-y: auto;
+    height: 400px;
+}
+
+/************Bhavana(Main Dashboard)************/
+
+   #rcorners1 {
+        border-radius: 25px;
+        /*border: 2px solid lightblue;*/
+        border: 2px solid black;
+        padding: 12px;
+        width: 85%;
+        height: 800px;
+        margin-top: 1%;
+        margin-left: 8%;
+    }
+
+    #rcorners2 {
+        border-radius: 25px;
+        /*border: 2px solid lightblue;*/
+        /*border: 2px solid #73AD21;*/
+        border: 1px solid black;
+        padding: 20px;
+        width: 20%;
+        height: 270px;
+        background-color: #8faadc;
+         margin-left: 1%;
+        margin-top:2%;
+    }
+
+    #rcorners3 {
+        border-radius: 10px;
+        /*border: 2px solid lightblue;*/
+        border: 1px solid black;
+        padding: 10px;
+        width: 25%;
+        height: 90px;
+        float:left;
+        /*margin-top: 15%;*/
+        margin-left:70%;
+        /*background-color:lightcoral;*/
+        background-color: #8faadc;
+    }
+
+    #rcorners4 {
+        border-radius: 10px;
+        /*border: 2px solid lightblue;*/
+        border: 1px solid black;
+        padding: 10px;
+        width: 25%;
+        height: 90px;
+        /*float:left;*/
+        margin-top: 25%;
+        margin-left:118%;
+        /*background-color:lightcoral;*/
+        background-color: #8faadc;
+    }
+
+    #rcorners5 {
+        border-radius: 10px;
+        /*border: 2px solid lightblue;*/
+        border: 1px solid black;
+        padding: 10px;
+        width: 25%;
+        height: 90px;
+         float:left;
+        margin-top: -10%;
+        margin-left:175%;
+        /*background-color:lightcoral;*/
+        background-color: #8faadc;
+    }
+     #rcorners6 {
+        border-radius: 10px;
+        /*border: 2px solid lightblue;*/
+        border: 1px solid black;
+        padding: 10px;
+        width: 25%;
+        height: 60px;
+         float:left;
+        margin-top: -15%;
+        margin-left:245%;
+        /*background-color:lightcoral;*/
+        background-color: #ffc000;
+    }
+
+      #rcorners7 {
+        border-radius: 10px;
+        /*border: 2px solid lightblue;*/
+        border: 1px solid black;
+        padding: 10px;
+        width: 25%;
+        height: 60px;
+        float:left;
+        margin-top: -19%;
+        margin-left:280%;
+        /*background-color:lightcoral;*/
+        background-color: #a5d314;
+    }
+    a {
+        color: red;
+        text-decoration: none;
+        border-bottom: 1px solid black;
+    }
+
+    /*h6{
+        word-spacing:1cm;
+    }*/
+
+    .arrow {
+        width: 120px;
+    }
+
+    .dot {
+        height: 50px;
+        width: 25%;
+        /*background-color: lightblue;*/
+        border-radius: 50%;
+        display: inline-block;
+        /*margin-top:25%;*/
+    }
+
+    .TestWIP {
+        position: absolute;
+        margin-left: -5%;
+        margin-top: 1%;
+        background-color: #1cb4cb;
+    }
+
+    .TestRepair {
+        width: 28%;
+        position: absolute;
+        margin-left: -48%;
+        margin-top: 34%;
+        background-color: #7dcab6;
+    }
+
+    .PCFG {
+        position: absolute;
+        background-color: #d3b09a;
+    }
+
+    .Invoice {
+        width: 50%;
+        position: absolute;
+        margin-left: -48%;
+        background-color: darkgoldenrod;
+    }
+
+    .Rework {
+        position: absolute;
+        margin-left: 20%;
+        margin-top: 2%;
+        background-color: #9dc6da;
+    }
+
+@media (min-width: 768px) {
+    .page-title {
+        margin-left: -180px;
+       
+    }
+    #page-wrapper {
+        margin-top:83px;
+    }
+}
+@media (min-width: 991px) {
+    .page-title {
+        margin-left: -100px;
+    }
+    #page-wrapper {
+        margin-top: 50px;
+    }
+
+    .fgDV {
+        background-color: white;
+        float: left;
+        width: 50%;
+        overflow-y: auto;
+        height: 400px;
+    }
+}
+
+#tableGridMaterial_filter > label { /*for changing format of search*/
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#tableGridMaterial_length { /*for changing format of num item per page dropdown*/
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+#tableGridMaterial th, #tableGridMaterial td:nth-child(1), #tableGridMaterial td:nth-child(2), #tableGridMaterial td {
+    text-align: center;
+}
+
+#tableGridMaterial {
+    padding: 0px;
+}
+
+
+#StockGrid_filter > label { /*for changing format of search*/
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#StockGrid_length { /*for changing format of num item per page dropdown*/
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+#StockGrid th, #StockGrid td:nth-child(1), #StockGrid td:nth-child(2), #StockGrid td {
+    text-align: center;
+}
+
+#StockGrid {
+    padding: 0px;
+}
+
+
+#MaterialUseStock_filter > label { /*for changing format of search*/
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#MaterialUseStock { /*for changing format of num item per page dropdown*/
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+#MaterialUseStock th, #MaterialUseStock td:nth-child(1), #MaterialUseStock td:nth-child(2), #MaterialUseStock td {
+    text-align: center;
+}
+
+#MaterialUseStock {
+    padding: 0px;
+}
+
+
+#SAPUseStock_filter > label { /*for changing format of search*/
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#SAPUseStock { /*for changing format of num item per page dropdown*/
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+#SAPUseStock th, #SAPUseStock td:nth-child(1), #SAPUseStock td:nth-child(2), #SAPUseStock td {
+    text-align: center;
+}
+
+#SAPUseStock {
+    padding: 0px;
+}
+
+
+#ProductionActivity_filter > label { /*for changing format of search*/
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#ProductionActivity { /*for changing format of num item per page dropdown*/
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+#ProductionActivity th, #ProductionActivity td:nth-child(1), #ProductionActivity td:nth-child(2), #ProductionActivity td {
+    text-align: center;
+}
+
+#ProductionActivity {
+    padding: 0px;
+}
+
+
+   

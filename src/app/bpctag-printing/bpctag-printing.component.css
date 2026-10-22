@@ -1,0 +1,119 @@
+.SelectRunNo {
+    height: 150px;
+    border: 1px solid rgb(199, 198, 198);
+    overflow: auto;
+  }
+  
+  .SelectRunNo2 {
+    height: 150px;
+    border: 1px solid rgb(199, 198, 198);
+    overflow: auto;
+  }
+  
+  .SelectFirstWorkCenter{
+    height: 150px;
+    border: 1px solid rgb(199, 198, 198);
+    overflow: auto;
+  }
+  
+  fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+  }
+  
+  legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+  }
+  
+  .responsive {
+    width: 100%;
+    height: 400px;
+  }
+  
+  .buttonPopUp ,.buttonPopDown{
+    background-color: lightblue;
+    color: #fff;
+    width: auto;
+    float: right;
+    margin-left: 5px;
+    font-size: 100%;
+    color: #000;
+    border-bottom: 2px solid #808080;
+    font-weight: 500;
+  }
+  
+  .buttonPopUp {
+  min-width:70px;
+  }
+  
+  /* .buttonPopUp:hover{
+  cursor: pointer;
+  border-bottom: 2px solid #808080;
+  } */
+  
+  .buttonPopDown:hover, .buttonPopUp:hover{
+  cursor: pointer;
+  border-bottom: 2px solid #808080;
+  }
+  .chechboxlist{
+  font-size: 14px; border-radius: 5px;  border: 1px solid #808080;
+  }
+  
+  input[type=checkbox]{
+  background-color: rgb(118, 206, 236);
+  border-color:rgb(118, 206, 236);
+  accent-color: #000000;
+  /* border-color:rgb(224, 77,77) ; */
+  }
+  
+  .dropdowncss{
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  border-color: #c6c6c6;
+  padding: 7px;
+  font-size: 15px;
+  }
+  
+  .dropdowncss:focus {
+  outline: none !important;
+  border:1px solid rgb(166, 171, 241);
+  box-shadow: 0 0 10px #719ECE;
+  }
+  
+  .dropdowncssRange{
+    width: 80%;
+    height: 35px;
+    border-radius: 5px;
+    border-color: #c6c6c6;
+    padding: 7px;
+    font-size: 15px;
+    }
+  
+  
+  .IdLog
+  {
+    /* height: 150px; */
+    overflow: auto;
+  }
+
+  .showLogLifts
+  {
+    height: 100px;
+    overflow: auto;
+  }
+
+  input[type=radio]
+  {
+    background-color: rgb(118, 206, 236);  
+    border-color:rgb(118, 206, 236);  
+    accent-color: #000000;  
+    /* border-color:rgb(224, 77,77) ; */  
+    }
+  
+   

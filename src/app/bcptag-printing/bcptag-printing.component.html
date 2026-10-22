@@ -1,0 +1,272 @@
+
+<div class="container" style="font-size:14px;">
+    <ngx-spinner name="spinner0" bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "square-jelly-box" [fullScreen] = "true">
+        <img alt="Loading Please Wait..." style="width:100px ; height:100px ;" src="{{loader}}" /> </ngx-spinner>
+
+    <form autocomplete="off" >
+        <div class="row border">
+                <div class="row text-start mt-2">
+                    <fieldset    style=" border: 1px solid #d1d1d1;">
+                        <legend  class="float-none w-auto h6">Select By</legend>
+                        <div class="row">
+                            <div class="col-md-5 text-start">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="ReleaseCode" [(ngModel)]="selected"  id="RadioReleaseCode" value="ReleaseCode" (change)="GetReleaseCode(selected,CDate)" >
+                                    <label class="form-check-label" for="RadioReleaseCode">Release Code</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="ReleaseCode" [(ngModel)]="selected" id="RadioSONo" value="SONo" (change)="GetSONumber(selected,CDate)">
+                                    <label class="form-check-label" for="RadioSONo">SO No</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="ReleaseCode" [(ngModel)]="selected" id="RadioRunNumber" value="RunNo" (change)="GetRunNumber(selected,CDate)">
+                                    <label class="form-check-label" for="RadioRunNumber">Run Number</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="ReleaseCode" [(ngModel)]="selected" id="RadioBBSNo" value="BBSNo" (change)="GetBBSNo(selected,CDate)">
+                                    <label class="form-check-label" for="RadioBBSNo">BBS No</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <!-- <div class="row">
+                                    <div class="col-md-6"> -->
+                                        <label class="form-check-label"  style=" width:auto; float: left;">Select Date</label>
+                                        <input type="date" id="CDate" class="form-control"  [(ngModel)]="CDate" name="CDate" (change)="GetRunNUmberfromDate(selected,CDate)">
+                                    <!-- </div>
+                                </div> -->
+                            </div>
+                          
+                            <div class="col-md-4 mb-3" >
+                                <label class="form-check-label" for="RadioSelectProductionCenter">Production Center</label>
+                                <div class="SelectProd p-1 chechboxlist position-relative" >
+                                    <input   class="form-check-input" type="checkbox" (change)="checkUncheckAllProdCenter()" id="chkAllProductionCenter" >
+                                    <label  class="form-check-label" for="chkAllProductionCenter">All</label>
+                                    <label  *ngFor="let item of this.ProductionCenter" class="col-12" (change)="IsAllProdCenter()">
+                                        <input id="{{item.fld_plant_desc}}"  [checked]="item.isChecked"  value="{{item.fld_plant_desc}}"   class="form-check-input m-1 chkSelectProductionCenter"
+                                            type="checkbox" >{{item.fld_plant_desc}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+            </div>
+            <div class="row">
+                <div class="row text-start">
+                    <fieldset    style=" border: 1px solid #d1d1d1;">
+                        <legend  class="float-none w-auto h6 ">Select {{ReleaseCode}}</legend>
+                        <div class="row">
+                            <div class="col-md-5 text-start">
+                            <!-- <select name="RollId"  class="dropdowncss mb-3" [(ngModel)]="selectedreleasecode" (change)="GetHall($event)"  id="ReleaseCode">
+                                <option [ngValue]="usr.Value" *ngFor="let usr of this.listReleaseCode">
+                                    {{usr.Value}}
+                                </option>
+                            </select> -->
+                            <ng-select  (change)="GetHall($event)"  [searchable]="true" [readonly]="false" >
+                                <ng-option [value]="usr.Value" *ngFor="let usr of this.listReleaseCode" >
+                                    {{usr.Value}}
+                                </ng-option>
+                             </ng-select>
+                             <br>
+                        </div>
+                        
+                    </div>
+                    </fieldset>
+                </div>
+            </div>
+            
+            <div class="row mt-1">
+                <div class="col-md-3" >
+                    <label class="form-check-label" for="RadioSelectRunNo">Production Hall</label>
+                    <div class="SelectRunNo p-1 chechboxlist position-relative" >
+                        <ngx-spinner name="spinner1" bdColor = "rgba(51, 51, 51, 0.8)" size = "small" color = "#fff" type = "square-jelly-box" [fullScreen] = "false">
+                            <p style="color: white" > Loading Production Hall... </p></ngx-spinner>
+                            
+                        <input [hidden]="HallHide" class="form-check-input" type="checkbox" (change)="checkUncheckAllHall()" id="chkAllSelectHall" >
+                        <label [hidden]="HallHide" class="form-check-label" for="chkAllSelectHall">All</label>
+                        <label  *ngFor="let item of this.ProductionHall" class="col-12 "  (change)="isAllSelectedHall()">
+                            <input id="{{item.Value}}"  [checked]="item.isChecked"  value="{{item.Value}}"   class="form-check-input m-1 chkSelectHall"
+                             type="checkbox" >{{item.Value}}
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 text-start">
+                    <label class="form-check-label"     for="RadioSelectRunNo">Machine Group</label>
+                    <div class="SelectRunNo2 p-1 chechboxlist position-relative"    >
+                        <ngx-spinner name="spinner2" bdColor = "rgba(51, 51, 51, 0.8)" size = "small" color = "#fff" type = "square-jelly-box" [fullScreen] = "false">
+                            <p style="color: white" > Loading Machine Group... </p></ngx-spinner>
+
+                        <input [hidden]="MachineHide" class="form-check-input" type="checkbox" (change)="isCheckedAllMachine()"  id="chkAllMachineGroup">
+                        <label [hidden]="MachineHide" class="form-check-label" for="chkAllMachineGroup">All</label> 
+                        <label  *ngFor="let item of this.MachineGroup" class="col-12 "  (change)="isAllSelectedMachine()">
+                            <input id="{{item.Value}}"  [checked]="item.isChecked"  value="{{item.Value}}" class="form-check-input m-1 chkMachineGroup"
+                            type="checkbox" >{{item.Value}}
+                        </label>  
+                    </div>
+                </div>
+                <div class="col-md-3 text-start">
+                    <label class="form-check-label" for="RadioSelectRunNo" >Work Center</label>
+                    <div class="SelectFirstWorkCenter p-1 chechboxlist position-relative" style="font-size:10px ;">
+                        <ngx-spinner name="spinner3" bdColor = "rgba(51, 51, 51, 0.8)" size = "small" color = "#fff" type = "square-jelly-box" [fullScreen] = "false">
+                            <p style="color: white" > Loading Work Center... </p></ngx-spinner>
+
+                        <input [hidden]="workcenterHide"  class="form-check-input" type="checkbox" (change)="chkAllWorkCenter()"   id="chkAllWorkCenter">
+                        <label [hidden]="workcenterHide" class="form-check-label" for="chkAllSelectworkcenter" >All</label>
+                        <label  *ngFor="let item of this.WorkCenter" class="col-12 " (change)="IsAllWorkCenter()" >
+                            <input id="{{item.Value}}" [checked]="item.isChecked" value="{{item.Value}}"   class="form-check-input m-1 chkSelectworkcenter"
+                                type="checkbox" >{{item.Value}}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-3 text-start">
+                    <label class="form-check-label" for="RadioSelectRunNo">Group Tag Number </label>
+                    <div class="SelectFirstWorkCenter p-1 chechboxlist position-relative" >
+                        <ngx-spinner name="spinner4" bdColor = "rgba(51, 51, 51, 0.8)" size = "small" color = "#fff" type = "square-jelly-box" [fullScreen] = "false">
+                            <p style="color: white" > Loading Group Tag Number... </p></ngx-spinner>
+
+                        <input [hidden]="GroupTagHide"  class="form-check-input" type="checkbox" (change)="chkAllGroupTag()"   id="chkAllGroupTag">
+                        <label [hidden]="GroupTagHide" class="form-check-label" for="chkAllGroupTag" style="margin-right:20px ;">All</label>
+                        <label  *ngFor="let item of this.GroupTag" class="col-12 " (change)="IsAllGroupTag()" >
+                            <input id="{{item.Value}}" [checked]="item.isChecked" value="{{item.TagNo}}"   class="form-check-input m-1 chkSelectGroupTag"
+                                type="checkbox" >{{item.TagNo}}
+                        </label>
+                        <input [hidden]="GroupTagHide"  class="form-check-input" type="checkbox" (change)="chkOtherTag()"   id="chkOtherTag">
+                        <label [hidden]="GroupTagHide" class="form-check-label" for="chkOtherTag" >Other Tag</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col-md-6">
+                    <fieldset class="col-md-12 text-start  mt-2 p-2 "   style="border-radius: 5px;  border: 1px solid #808080;">
+                        <legend  class="float-none w-auto  h6"  >Tag No</legend>
+                            <div class="row">
+                                <div class="col-md-6" >
+                                    <div class="col-md-12">
+                                        <!-- <input class="form-check-input" type="checkbox" [disabled]="isDisable" id="chkPrintchildtags">
+                                       <small style="font-size:13px ;"> Print only child tags and orphan tags</small>  -->
+                                    </div>
+                                    <div class="col-md-12 text-center mt-2" >
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" [disabled]="isDisable" name="PrintAll" id="RadioAll" value="All"  (change)="GetAllTagNumber($event)" >
+                                            <label class="form-check-label" for="RadioAll">All</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" [disabled]="isDisable" name="PrintAll" id="RadioSelect" value="Select" (change)="Showbuttons($event)" >
+                                            <label class="form-check-label" for="RadioSelect">Select</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" [disabled]="isDisable" name="PrintAll" id="RadioRange" value="Range" (change)="ShowRange($event)">
+                                            <label class="form-check-label" for="RadioRange">Range</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 text-center mt-2 " >
+                                        <div class="col-md-12"  *ngIf = "isShowbutton">
+                                            <input type="text" class="form-control"  name="selectRunnumber"  [(ngModel)]="selectRunnumber">
+                                        </div>
+                                        <div class="col-md-12 text-start"  *ngIf = "isShowbutton">
+                                            <input type="button" class="btn btn-sm buttonPopDown m-1" value="GO" (click)="GetSelectTagNumber()">
+                                            <input type="button" class="btn btn-sm buttonPopDown m-1" value="Reset" (click)="ResetNumber()">
+                                        </div>
+
+                                        <div class="col-md-12"  *ngIf = "isShowRange">
+                                            <label for="label" class="form-label" style="width: 50px;">From</label>
+                                            <select name="RangeFrom"  class="dropdowncssRange"  (change)="GetRangeFrom($event)"
+                                                #RangeFrom="ngModel" [(ngModel)]="FromTagNo" >
+                                                    <option value="0">Please Select</option>
+                                                    <option [ngValue]="prt.TagNo" *ngFor="let prt of this.tagNumberFromPrintRange">
+                                                        {{prt.TagNo}}
+                                                    </option>
+                                            </select>
+                                            <!-- [(ngModel)]="service.tagNumberToPrintdata.TagNo" -->
+                                        </div>
+                                        <div class="col-md-12"  *ngIf = "isShowRange">
+                                            <label for="label" class="form-label" style="width: 50px;">To</label>
+                                            <select name="RangeTo"  class="dropdowncssRange"  (change)="GetRangeTo($event)"
+                                                #RangeTo="ngModel" [(ngModel)]="ToTagNo">
+                                                    <option value="0">Please Select</option>
+                                                    <option [ngValue]="prtTo.TagNo" *ngFor="let prtTo of this.tagNumberToPrintRange">
+                                                        {{prtTo.TagNo}}
+                                                    </option>
+                                            </select>
+                                            <!-- [(ngModel)]="service.tagNumberToPrinTodata.TagNo" -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-check-label" for="RadioSelectRunNo">Tag Number <span style="font-weight:800 ; margin-left: 10px;">Total Tag : {{TagCount}}</span></label>
+                                    <div class="SelectRunNo2 p-1 chechboxlist position-relative" id="IdTagNumber">
+                                        <ngx-spinner name="spinner5" bdColor = "rgba(51, 51, 51, 0.8)" size = "small" color = "#fff" type = "square-jelly-box" [fullScreen] = "false">
+                                            <p style="color: white" > Loading Tag Number... </p></ngx-spinner>
+                                        <div [hidden]="ishidden">
+                                            <input [hidden]="TagNumberPrintHide" class="form-check-input" type="checkbox" (change)="chkAllTagNumber()"  checked="true"    id="chkAllTagNumbertoPrint">
+                                            <label [hidden]="TagNumberPrintHide" class="form-check-label" for="chkAllSelectRunNo">All</label>
+                                            <label *ngFor="let item of this.tagNumberToPrint" class="col-12 "  (change)="IsAllTagNumber()"  >
+                                                <input id="{{item.TagNo}}" [checked]="item.isChecked"   value="{{item.TagNo}}"  class="form-check-input m-1 chkTagNoTagNotoPrint"
+                                                type="checkbox" >{{item.TagNo}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                </div>
+                            </div>
+                    </fieldset>
+                </div>
+                <div class="col-md-6 chechboxlist mt-3">
+                    <div class="row text-start  ">
+                        <div class="col-md-12">
+                            <label for="label" class="form-label" style="margin-top:10px ;">Printer Name</label>
+                            <select name="PrintId"  class="dropdowncss" 
+                                #PrintId="ngModel"  [(ngModel)]="selectPrinterName" (change)="PrinterStatus()" >
+                                <option value="{{this.PDF}}">{{this.PDF}}</option>
+                                <option value="{{this.pnm}}">{{this.pnm}}</option> 
+                                <option value="{{this.printbcp}}">{{this.printbcp}}</option>
+                                    <!-- <option [ngValue]="prt.Name" *ngFor="let prt of this.PrinterName">
+                                        {{prt.Name}}
+                                    </option> -->
+                            </select>
+                        </div>
+                        <div class="row text-start  ">
+                            <div class="col-md-12">
+                                <label for="label" class="form-label" style="margin-top:10px ;">Printer Status :</label>
+                                <label for="label" class="form-label" style="margin-top:10px ; margin-left: 5px;" > {{FinalPrinterStatus}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row text-start mt-2">
+                        <div class="col-md-12">
+                            <label for="label" class="form-label" style="margin-top:10px ;">Template File </label>
+                            <select name="TemplateFileId"  class="dropdowncss"  (change)="getTempFileName()"
+                                #TemplateFileId="ngModel" [(ngModel)]="selectTemplateName" >
+                                <option [ngValue]="lib.Name" *ngFor="let lib of this.GetLibrarian">
+                                    {{lib.Name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row text-start mt-2">
+                        <div class="col-md-12">
+                            <!-- <input type="button" class="btn buttonPopUp m-1" value="Stop"> -->
+                            <input type="button" class="btn buttonPopUpprint  m-1" [disabled]="IsPrintdisabled" value="Print" (click)="RunHistory()" >
+                            <input type="button" class="btn buttonPopUp  m-1" value="Reset"  (click)="Reset()" > 
+                            <a class="btn buttonPopUp  m-1" [hidden]="IsDownload" href={{this.getfile}}>Download Tags</a>       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-1 IdLog" style="border-radius: 5px; height: auto;  border: 1px solid #808080;">
+            <div *ngFor="let logs of this.Logs" style="margin:0px ;padding: 0px;" id="IdlogDiv" > 
+                    {{logs.ProdType}} --
+                    {{logs.LogStatus}} -- 
+                    {{logs.StartTime}} -- 
+                    {{logs.EndTime}} -- 
+                    {{logs.releaseCode}} -- 
+                    {{logs.TempletFile}} --
+                    {{logs.User}} 
+            </div>
+        </div>
+
+    </form>
+    <br>
+</div>

@@ -1,0 +1,51 @@
+{
+  "name": "tag-printing",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "build:dev": "ng build --watch --deploy-url /TagPrint/ --base-href /TagPrint/ --configuration=development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^14.0.0",
+    "@angular/common": "^14.0.0",
+    "@angular/compiler": "^14.0.0",
+    "@angular/core": "^14.0.0",
+    "@angular/forms": "^14.0.0",
+    "@angular/platform-browser": "^14.0.0",
+    "@angular/platform-browser-dynamic": "^14.0.0",
+    "@angular/router": "^14.0.0",
+    "@ng-select/ng-select": "^9.1.0",
+    "@progress/kendo-angular-dropdowns": "^7.2.3",
+    "@syncfusion/ej2-angular-base": "^20.3.56",
+    "@syncfusion/ej2-angular-buttons": "^20.3.56",
+    "@syncfusion/ej2-angular-dropdowns": "^20.3.56",
+    "angular-chosen": "^1.0.8",
+    "angular-chosen-localytics": "^1.9.3",
+    "bootstrap": "^5.2.0",
+    "jquery": "^3.6.1",
+    "ngx-spinner": "^14.0.0",
+    "rxjs": "~7.5.0",
+    "select2": "^4.1.0-rc.0",
+    "tslib": "^2.4.1",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.2.5",
+    "@angular/cli": "~14.0.6",
+    "@angular/compiler-cli": "^14.0.0",
+    "@types/jasmine": "~4.0.0",
+    "@types/jquery": "^3.5.14",
+    "@types/node": "^18.13.0",
+    "jasmine-core": "~4.1.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.0.0",
+    "karma-jasmine-html-reporter": "~1.7.0",
+    "typescript": "~4.7.2"
+  }
+}

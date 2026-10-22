@@ -1,0 +1,79 @@
+.buttonPopUp, .buttonPopDown{
+    background-color: lightblue;
+    color: #fff;
+    width: auto;
+    float: right;
+    margin-left: 5px;
+    font-size: 100%;
+    color: #000;
+    border-bottom: 2px solid #808080;
+    font-weight: 500;
+  }
+  
+.buttonPopUp {
+  min-width:70px;
+}
+
+.dropdowncss{
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  border-color: #c6c6c6;
+  padding: 7px;
+  font-size: 15px;
+  }
+  
+.buttonPopUpprint{
+  background-color: lightblue;
+  color: #fff;
+  width: auto;
+  float: right;
+  margin-left: 5px;
+  font-size: 100%;
+  color: #000;
+  border-bottom: 2px solid #808080;
+  font-weight: 500;
+}
+.chechboxlist{
+    font-size: 14px; border-radius: 5px;  border: 1px solid #808080;
+}
+
+.SelectRunNo,.SelectRunNo2 {
+    height: 150px;
+    border: 1px solid rgb(199, 198, 198);
+    overflow: auto;
+}
+.SelectRunNo2 {
+    height: 150px;
+    width: 100%;
+}
+
+
+.SelectFirstWorkCenter{
+    height: 150px;
+    border: 1px solid rgb(199, 198, 198);
+    overflow: auto;
+  }
+
+.disableDiv{
+    pointer-events:none;
+    background: rgb(199, 198, 198);
+}
+
+.buttonPopUpprint:active {
+  transform: scale(0.98);
+  box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.24);
+}
+
+
+input[type=checkbox]{
+  background-color: rgb(118, 206, 236);
+  border-color:rgb(118, 206, 236);
+  accent-color: #000000;
+  /* border-color:rgb(224, 77,77) ; */
+  }
+  
+  .showLogLifts{
+    height: 100px;
+    overflow: auto;
+  }

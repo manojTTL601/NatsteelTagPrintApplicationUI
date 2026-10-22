@@ -1,0 +1,64 @@
+.buttonPopUp {
+    width: 100%;
+}
+
+  .buttonPopUp ,.buttonPopDown{
+    background-color: lightblue;
+    color: #fff;
+    width: auto;
+    
+    font-size: 100%;
+    color: #000;
+    border-bottom: 2px solid #030303;
+    font-weight: 500;
+  }
+  
+
+  .buttonPopUp:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+
+  
+select.customDropdown::-ms-expand {
+  display: none;
+}
+
+select.customDropdown {
+  outline : none;
+  overflow : hidden;
+  text-indent : 0.01px;
+  text-overflow : '';
+  
+  background : url("https://img.icons8.com/material/24/000000/sort-down.png") no-repeat right #fff;
+
+  -webkit-appearance: none;
+     -moz-appearance: none;
+      -ms-appearance: none;
+       -o-appearance: none;
+          appearance: none;
+}  
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  
+}
+
+th{
+  background-color: rgb(132, 209, 235);
+  /*box-shadow:3px #808080;*/
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  
+  
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

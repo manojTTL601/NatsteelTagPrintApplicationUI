@@ -1,0 +1,54 @@
+<div class="container">
+    
+    <div class="row" style="margin-top: 50px;">
+        <!-- <p style="color: red;">*Enter SO/ITEM Number</p> -->
+        <div class="col-md-6">
+            Enter SO/Item Number :<input type="text"  [(ngModel)]="var1"
+             style="margin-left: 15px; width: 50%;" placeholder="Enter SO/Item Number" >
+        </div>
+        <!-- <div class="col-md-6">
+            Enter Additional Remark :<input type="text"  [(ngModel)]="var2"
+            style="margin-left: 15px; width: 50%;" placeholder="Enter Item Number" >
+        </div> -->
+        <div class="col-md-6">
+            Select Printername:<select name="TemplateFileId" style="width:273px;height: 30px; margin-left: 15px;" #TemplateFileId="ngModel" 
+            [(ngModel)]="selectPrinterName">
+            <option value="{{this.pname1}}">{{this.pname1}}</option>
+            <option value="{{this.pname2}}">{{this.pname2}}</option>    
+        </select>
+        </div>
+     
+    </div>
+    <!-- <div class="row" style="margin-top: 25px;">
+        <div class="col-md-6">
+            Select Printername:<select name="TemplateFileId" style="width:273px;height: 30px; margin-left: 15px;" #TemplateFileId="ngModel" 
+            [(ngModel)]="selectPrinterName">
+            <option value="{{this.pname1}}">{{this.pname1}}</option>
+            <option value="{{this.pname2}}">{{this.pname2}}</option>    
+        </select>
+        </div>
+        <div class="col-md-6">
+            Select TemplateFile:<select name="TemplateFileId" style="width:273px;height: 30px; margin-left: 15px;" #TemplateFileId="ngModel" 
+            [(ngModel)]="selectTemplateName">
+            <option [ngValue]="lib.Name" *ngFor="let lib of this.GetLibrarian">
+                {{lib.Name}}
+            </option>
+        </select>
+        </div>
+     
+    </div>
+     -->
+     <div style="margin-top: 50px; text-align: center;">
+        <input type="button" class="btn Center buttonPopUp" value="Print Tags" (click)="printdata()">
+        <a class="btn buttonPopUp  m-1" [hidden]="IsDownload" href={{this.getfile}}>Download</a>
+    </div>
+    <div class="row mt-1 IdLog" style="border-radius: 5px; height: auto;  border: 1px solid #808080; margin-top:100px;">
+        <div  style="margin:0px ;padding: 0px;">
+            <p *ngIf="isPrintingStarted" style="margin: 0px; padding: 0px;">Printing Started...</p>
+            <p *ngIf="isPrintingCompleted" style="margin: 0px; padding: 0px;">Printing Completed.</p>
+            <a onClick="openTab(this)" href="#" name="D:\Completed-MSH115-TRD1982-82.pdf">Download Pdf</a>
+        </div>
+       
+    </div>
+    
+</div>

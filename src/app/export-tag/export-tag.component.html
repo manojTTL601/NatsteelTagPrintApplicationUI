@@ -1,0 +1,1318 @@
+<div class="container" style="font-size:14px ;">
+     <ngx-spinner name="spinner" bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "square-jelly-box" [fullScreen] = "true">
+            <img alt="Loading Please Wait..." style="width:100px ; height:100px ;" src="{{loader}}" /> </ngx-spinner>
+    
+    <form autocomplete="off" style="height: auto;">
+
+        <!--start: tab in bootstrap-->
+        <!--end: tab in bootstrap-->
+
+        <div class="row">
+            <div class="col-md-12 text-center p-3 border">
+                <label class="form-check-label text-center tagGenType labelweight">Tag Generation Type</label>
+                <select name="RollId" class="dropdowncss" (click)="GetForm($event)" id="GetForm">
+                    <option value="" disabled selected>Select Tag Generation Type</option>
+                    <option value="0">MALASIYA SIRIM Export Tag Generation</option>
+                    <option value="1">MESH/PRECUT Export Tag Generation</option>\
+                    <option value="2">SAMPLE MESH/PRECUT Tag Generation</option>
+                </select>
+            </div>
+
+
+
+
+            <!--end: Tag Generation Type dropdown-->
+        </div>
+        <!--start :Malasiya sirim exoprt tag generation-->
+        <div *ngIf="isMeshVisible">
+            <div class="row">
+                <div class="col-md-12 p-3 border">
+                    <div class="row">
+                        <div class="col-md-12 text-center p-2" style="margin-bottom: 15px;">
+                            <label class="form-check-label text-center tagGenType labelweight">Tag Type</label>
+                            <select name="RollId" [disabled]="toggletagtype" class="dropdowncss" #box
+                                (click)="GetSubForm($event)" id="GetSubForm">
+                                <option *ngIf="false" value=""></option>
+                                <option value="3"></option>
+                                <option value="0">Malasiya Sirim Mesh Tag</option>
+                                <option value="1">Malasiya Sirim Precut Wires Tag</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="border p-2">
+                        <!--start -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="fieldname labelweight" style="margin-left: 13px;"
+                                    for="productDropdown"><span style="color: red;">*</span>Product</label>
+                                <select name="selectproductmesh" (change)="disableNewProductMesh()" class="dropdowncss2"
+                                    style="margin-left: 43px; width: 60%;" name="id" #RollId="ngModel"
+                                    [(ngModel)]="selectproductmesh" id="selectproductmesh">
+                                    <option [ngValue]="prd.Value" *ngFor="let prd of this.ProductMesh">
+                                        {{prd.Value}}
+                                    </option>
+                                </select>
+
+                                <input type="text" class="form-control" [disabled]="toggleButtonProduct"
+                                    style="margin-left: 118px;margin-top: 8px; height: 30px; width: 60%;"
+                                    name="selectnewproductemesh" [(ngModel)]="selectnewproductemesh">
+                            </div>
+                            <div class="col-sm-2 Center">
+                                <input type="button" class="btn buttonPopUp"
+                                    style="width: 50%;margin-right: 100px;margin-top: 2px; margin-bottom: 10px;"
+                                    (click)="enableProduct()" value="Add">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="fieldname2 labelweight" for="productDropdown">Type</label>
+                                <select name="selecttypemesh" (change)="disableNewTypeMesh()" class="dropdowncss2"
+                                    style="margin-left: 61px;width: 60%;" #RollId="ngModel" [(ngModel)]="selecttypemesh"
+                                    id="selecttypemesh">
+                                    <option [ngValue]="prd.Value" *ngFor="let prd of this.TypeMesh">
+                                        {{prd.Value}}
+                                    </option>
+                                </select>
+                                <input type="text" [disabled]="toggleButtonType" class="form-control textbox"
+                                    style="margin-left: 118px;margin-top: 8px; height: 30px; width: 60%;"
+                                    name="selectnewTypemesh" [(ngModel)]="selectnewTypemesh">
+
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="button" (click)="enableType()" class="btn buttonPopUp button2"
+                                    style="width: 50%; margin-top: 2px; margin-bottom: 10px;" value="Add">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-md-4">
+                                <label class="fieldname labelweight" for="productDropdown">Grade </label>
+                                <select name="selectGrademesh" (change)="disableNewGradeMesh()" class="dropdowncss2"
+                                    style="margin-left: 55px; width: 60%;" #RollId="ngModel"
+                                    [(ngModel)]="selectGrademesh" id="selectGrademesh">
+                                    <option [ngValue]="prd.Value" *ngFor="let prd of this.GradeMesh">
+                                        {{prd.Value}}
+                                    </option>
+                                </select>
+                                <input type="text" [disabled]="toggleButtonGrade" class="form-control"
+                                    style="margin-left: 118px;margin-top: 8px; height: 30px; width: 60%;"
+                                    name="selectnewGrademesh" [(ngModel)]="selectnewGrademesh">
+                            </div>
+                            <div class="col-sm-2 Center">
+                                <input type="button" (click)="enableGrade()" class="btn buttonPopUp"
+                                    style="width: 50%;margin-right: 100px;margin-top: 2px; margin-bottom: 10px;"
+                                    value="Add">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="fieldname2 labelweight" for="productDropdown">Batch No</label>
+                                <select name="selectbatchno" (change)="disableNewBatchMesh()" class="dropdowncss2"
+                                    style="margin-left: 33px;width: 60%;" #RollId="ngModel"
+                                    [(ngModel)]="selectbatchnoMesh" id="selectbatchno">
+                                    <option [ngValue]="prd.Value" *ngFor="let prd of this.BatchMesh">
+                                        {{prd.Value}}
+                                    </option>
+                                </select>
+                                <input type="text" [disabled]="toggleButtonBatch" class="form-control textbox"
+                                    style="margin-left: 118px;margin-top: 8px; height: 30px; width: 60%;"
+                                    name="selectNewBatchNo" [(ngModel)]="selectNewBatchNo">
+
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="button" (click)="enableBatch()" class="btn buttonPopUp button2"
+                                    style="width: 50%; margin-top: 2px; margin-bottom: 10px;" value="Add">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 10px;margin-top: 13px;">
+                                <label for="inputPassword" class="col-sm-2 col-form-label labelweight">Unit Wt</label>
+                                <div class="col-sm-10">
+                                    <input type="text" style="width: 49%; height: 30px; margin-left: 9px"
+                                        class="form-control" name="SelectedUnitWtmesh" [(ngModel)]="SelectedUnitWtmesh"
+                                        placeholder="Enter Unit Weight">
+                                </div>
+                            </div>
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 14px; margin-top: 13px;">
+                                <label for="inputPassword" class="col-sm-2 col-form-label labelweight"><span
+                                        style="color: red;">*</span>QtyxSize</label>
+                                <div class="col-sm-10">
+                                    <input type="text" style="width: 50%; height: 30px; margin-left: 9px"
+                                        class="form-control" id="inputPassword" placeholder="Enter Qty x Size"
+                                        name="selectedQtySizeMesh" [(ngModel)]="selectedQtySizeMesh">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 10px;">
+                                <label for="inputPassword" class="col-sm-2 col-form-label labelweight">Remark</label>
+                                <div class="col-sm-10">
+                                    <input type="text" style="width: 49%; height: 30px;margin-left:9px;"
+                                        class="form-control" id="inputPassword" placeholder="Enter Remark"
+                                        name="SelectedRemarkMesh" [(ngModel)]="SelectedRemarkMesh">
+                                </div>
+                            </div>
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 14px;">
+                                <label for="inputPassword" class="col-sm-2 col-form-label labelweight">Date of
+                                    Manufacture</label>
+                                <div class="col-sm-10">
+                                    <input type="date" style="width: 50%; height: 33px; margin-left: 9px"
+                                        class="form-control" id="inputPassword" placeholder="Enter Date of Manufacture"
+                                        name="selectedDOMMesh" [(ngModel)]="selectedDOMMesh">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div *ngIf="isHeatNo" class="col-md-6 p-2 form-group row" style="margin-left: 10px;">
+                                <label for="HeatNo" class="col-sm-2 col-form-label labelweight">Heat No</label>
+                                <div class="col-sm-10">
+                                    <input type="text" style="width: 49%; height: 30px;margin-left: 9px;"
+                                        class="form-control" name="selectHeatmesh" placeholder="Enter Heat No"
+                                        [(ngModel)]="selectHeatmesh">
+                                </div>
+                            </div>
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 14px;">
+                                <label for="NoofTag" class="col-sm-2 col-form-label labelweight"><span
+                                        style="color: red;">*</span>NumberOf Tag</label>
+                                <div class="col-sm-10">
+                                    <select name="selectedtNoofTagMesh" class="dropdowncss2"
+                                        style="width: 49%; height: 30px; margin-left: 9px" #RollId="ngModel"
+                                        [(ngModel)]="selectedtNoofTagMesh" id="selectedtNoofTagMesh">
+                                        <option value="" disabled selected>Select Number of Tags</option>
+                                        <option [ngValue]="prd.Value" *ngFor="let prd of this.totaltag">
+                                            {{prd.Value}}
+                                        </option>
+                                    </select>
+
+                                    <!-- <input type="text" style="width: 50%; height: 30px; margin-left: 9px"
+                                        class="form-control" name="selectedtNoofTagMesh"
+                                        placeholder="Enter Number of Tag" [(ngModel)]="selectedtNoofTagMesh"> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-2 mb-4">
+
+                            <div class="text-center">
+                                <button type="button" class="btn submit" (click)="LoadToxml(box.value)"
+                                    style="margin-bottom: -20px;">Submit</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table border" style="margin-top: 15px">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr. No.</th>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Qty*Size</th>
+                                    <th scope="col">Grade</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Unit Wt</th>
+                                    <th scope="col">Date of Manufacture</th>
+                                    <th scope="col">Remark</th>
+                                    <th scope="col">Batch No</th>
+                                    <th scope="col">Heat No</th>
+                                    <th scope="col">No of Tag</th>
+                                    <th scope="col">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr *ngFor="let row of rows; let i=index">
+                                    <td>{{i + 1}}</td>
+                                    <td (dblclick)="editmesh(row,'selectproductmesh')">
+                                        <div class="row" *ngIf="row.editFieldNamemesh=='selectproductmesh'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="selectproductmesh"
+                                                    name="selectproductmesh" class="form-control"
+                                                    style="width: 100%;" />
+                                            </div>
+                                            <div class="col-md-2" style="margin-right: 21px; margin-top: 1px;">
+                                                <button type="button"
+                                                    (click)="updatemesh(row, selectproductmesh, 'selectproductmesh')"
+                                                    class="btn submit" style="color: greenyellow;">✔️</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="CancelMesh(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldNamemesh!='selectproductmesh'">
+                                            {{row.selectproductmesh}}
+                                        </div>
+
+                                    </td>
+
+                                    <td (dblclick)="editmesh(row,'selectedQtySizeMesh')">
+                                        <div class="row" *ngIf="row.editFieldNamemesh=='selectedQtySizeMesh'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="selectedQtySizeMesh"
+                                                    name="selectedQtySizeMesh" class="form-control"
+                                                    style="width: 100%;" />
+                                            </div>
+                                            <div class="col-md-2" style="margin-right: 23px; margin-top: 1px;">
+                                                <button type="button"
+                                                    (click)="updatemesh(row, selectedQtySizeMesh, 'selectedQtySizeMesh')"
+                                                    class="btn submit" style="color: greenyellow;">✔️</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="CancelMesh(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldNamemesh!='selectedQtySizeMesh'">
+                                            {{row.selectedQtySizeMesh}}
+                                        </div>
+
+                                    </td>
+
+                                    <td (dblclick)="editmesh(row,'selectGrademesh')">
+                                        <div class="row" *ngIf="row.editFieldNamemesh=='selectGrademesh'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="selectGrademesh" name="selectGrademesh"
+                                                    class="form-control" style="width: 100%;" />
+                                            </div>
+                                            <div class="col-md-2" style="margin-right: 23px; margin-top: 1px;">
+                                                <button type="button"
+                                                    (click)="updatemesh(row, selectGrademesh, 'selectGrademesh')"
+                                                    class="btn submit" style="color: greenyellow;">✔️</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="CancelMesh(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldNamemesh!='selectGrademesh'">
+                                            {{row.selectGrademesh}}
+                                        </div>
+
+                                    </td>
+
+                                    <td (dblclick)="editmesh(row,'selecttypemesh')">
+                                        <div class="row" *ngIf="row.editFieldNamemesh=='selecttypemesh'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="selecttypemesh" name="selecttypemesh"
+                                                    class="form-control" style="width: 100%;" />
+                                            </div>
+                                            <div class="col-md-2" style="margin-right: 23px; margin-top: 1px;">
+                                                <button type="button"
+                                                    (click)="updatemesh(row, selecttypemesh, 'selecttypemesh')"
+                                                    class="btn submit" style="color: greenyellow;">✔️</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="CancelMesh(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldNamemesh!='selecttypemesh'">
+                                            {{row.selecttypemesh}}
+                                        </div>
+
+                                    </td>
+
+                                    <td (dblclick)="editmesh(row,'SelectedUnitWtmesh')">
+                                        <div class="row" *ngIf="row.editFieldNamemesh=='SelectedUnitWtmesh'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="SelectedUnitWtmesh"
+                                                    name="SelectedUnitWtmesh" class="form-control"
+                                                    style="width: 100%;" />
+                                            </div>
+                                            <div class="col-md-2" style="margin-right: 23px; margin-top: 1px;">
+                                                <button type="button"
+                                                    (click)="updatemesh(row, SelectedUnitWtmesh, 'SelectedUnitWtmesh')"
+                                                    class="btn submit"
+                                                    style="color: greenyellow; width: 5px;">✔️</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="CancelMesh(row)" class="btn submit"
+                                                    style="width: 5px; color: red;">X</button>
+                                            </div>
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldNamemesh!='SelectedUnitWtmesh'">
+                                            {{row.SelectedUnitWtmesh}}
+                                        </div>
+
+                                    </td>
+
+                                    <td (dblclick)="editmesh(row,'selectedDOMMesh')">
+                                        <div class="row" *ngIf="row.editFieldNamemesh=='selectedDOMMesh'">
+                                            <div class="col-md-6">
+                                                <input type="date" [(ngModel)]="selectedDOMMesh" name="selectedDOMMesh"
+                                                    class="form-control" style="width: 100%;" />
+                                            </div>
+                                            <div class="col-md-2" style="margin-right: 23px; margin-top: 1px;">
+                                                <button type="button"
+                                                    (click)="updatemesh(row, selectedDOMMesh, 'selectedDOMMesh')"
+                                                    class="btn submit" style="color: greenyellow;">✔️</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="CancelMesh(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldNamemesh!='selectedDOMMesh'">
+                                            {{row.selectedDOMMesh}}
+                                        </div>
+
+                                    </td>
+
+
+                                    <td (dblclick)="editmesh(row,'SelectedRemarkMesh')">
+                                        <div class="row" *ngIf="row.editFieldNamemesh=='SelectedRemarkMesh'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="SelectedRemarkMesh"
+                                                    name="SelectedRemarkMesh" class="form-control"
+                                                    style="width: 100%;" />
+                                            </div>
+                                            <div class="col-md-2" style="margin-right: 23px; margin-top: 1px;">
+                                                <button type="button"
+                                                    (click)="updatemesh(row, SelectedRemarkMesh, 'SelectedRemarkMesh')"
+                                                    class="btn submit" style="color: greenyellow;">✔️</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="CancelMesh(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldNamemesh!='SelectedRemarkMesh'">
+                                            {{row.SelectedRemarkMesh}}
+                                        </div>
+
+                                    </td>
+
+                                    <td (dblclick)="editmesh(row,'selectbatchnoMesh')">
+                                        <div class="row" *ngIf="row.editFieldNamemesh=='selectbatchnoMesh'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="selectbatchnoMesh"
+                                                    name="selectbatchnoMesh" class="form-control"
+                                                    style="width: 100%;" />
+                                            </div>
+                                            <div class="col-md-2" style="margin-right: 23px; margin-top: 1px;">
+                                                <button type="button"
+                                                    (click)="updatemesh(row, selectbatchnoMesh, 'selectbatchnoMesh')"
+                                                    class="btn submit" style="color: greenyellow;">✔️</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="CancelMesh(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+                                        </div>
+
+                                        <div *ngIf="row.editFieldNamemesh!='selectbatchnoMesh'">
+                                            {{row.selectbatchnoMesh}}
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>{{row.selectHeatmesh}}</td>
+
+                                    <td>{{row.selectedtNoofTagMesh}}</td>
+                                    <td><button type="button" (click)="delete(i)" class="btn submit">Delete</button>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                    <div class="border p-2">
+                        <div class="row">
+
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 10px;">
+                                <label for="inputPassword" class="col-sm-3 col-form-label labelweight"><span
+                                        style="color: red;">*</span>Template File</label>
+                                <div class="col-sm-8">
+                                    <select name="RollId" class="dropdowncss2" style="margin-left: 43px; width: 60%;"
+                                        #RollId="ngModel" [(ngModel)]="selectTemplateMesh" id="selectTemplateMesh">
+                                        <!-- <option value="" disabled selected>Select Template File</option> -->
+                                        <option *ngIf="toggleTemplate1" value="lib://EXPORT_PROD_WEB/MeshTag.btw">
+                                            {{this.selectTemplateMesh}}</option>
+                                        <option *ngIf="toggleTemplate2"
+                                            value="lib://EXPORT_PROD_WEB/PrecutWiresTag.btw">
+                                            {{this.selectTemplateMesh}}</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 14px;">
+                                <label for="inputPassword" class="col-sm-3 col-form-label labelweight"
+                                    style="vertical-align: middle;"><span style="color: red;">*</span>Printer
+                                    Name</label>
+                                <div class="col-sm-8">
+                                    <select name="RollId" class="dropdowncss2" style="margin-left: 43px; width: 60%;"
+                                        #RollId="ngModel" [(ngModel)]="selectedtPrinterMesh" id="selectedtPrinterMesh">
+                                        <option value="" disabled selected>Select Printer Name</option>
+                                        <option value="{{this.PDF}}">{{this.PDF}}</option>
+                                        <option value="{{this.pnm}}">{{this.pnm}}</option>
+                                        <option value="{{this.mptp}}">{{this.mptp}}</option>
+                                        <!-- <option [ngValue]="prd.Name" *ngFor="let prd of this.PrinterName">
+                                            {{prd.Name}}
+                                        </option> -->
+                                    </select>
+                                    <!-- <div class="row text-start  ">
+                                        <div class="col-md-12">
+                                            <label for="label" class="form-label" style="margin-top:10px ;">Printer Status :</label>
+                                            <label for="label" class="form-label" style="margin-top:10px ; margin-left: 5px;" > {{FinalPrinterStatus}}</label>
+                                        </div>
+                                    </div> -->
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="p-2 mb-4">
+
+                            <div class="text-center" style="margin-bottom: -30px;">
+
+                                <button type="button" class="btn submit" (click)="resetall()"
+                                    style="margin: 10px;">Reset</button>
+                                <button type="button" class="btn submit" (click)="printExport()"
+                                    style="margin: 10px;">Print</button>
+                                <p *ngIf="isPrintingStarted">Printing started....</p>
+                                <p *ngIf="isPrintingCompleted">Printing completed....</p>
+                                <!-- <button type="button" class="btn submit" style="margin: 10px;">Stop</button> -->
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--end :Malasiya sirim exoprt tag generation-->
+        <!--mesh precut export tag generation-->
+        <div *ngIf="isPrecutVisible">
+            <div class="row">
+                <div class="col-md-12 p-3 border">
+
+                    <div class="border p-2">
+                        <!--start -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="fieldname" for="productDropdown" style="margin-left: 14px;"><span
+                                        style="color: red;">*</span>Product</label>
+                                <select name="selectedproduct" (change)="disableNewProduct()" class="dropdowncss2"
+                                    style="margin-left: 69px; width: 60%;" #RollId="ngModel"
+                                    [(ngModel)]="selectedproduct" id="selectedproduct">
+                                    <option [ngValue]="prd.Value" *ngFor="let prd of this.ProductPrecut">
+                                        {{prd.Value}}
+                                    </option>
+                                </select>
+                                <input type="text" [disabled]="togglebuttonproductprecut" class="form-control"
+                                    style="margin-left: 137px;margin-top: 8px; height: 30px; width: 60%;"
+                                    name="selectnewproduct" [(ngModel)]="selectnewproduct">
+                            </div>
+                            <div class="col-sm-2 Center">
+                                <input type="button" class="btn buttonPopUp" (click)="enablenewproductprecut()"
+                                    style="width: 50%;margin-right: 55px;margin-top: 2px; margin-bottom: 10px;"
+                                    value="Add">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="fieldname2" for="productDropdown" style="margin-left: 13px;"><span
+                                        style="color: red;">*</span>DeliverTo</label>
+                                <select name="selecteddelivery" class="dropdowncss2" (change)="disabledelivery()"
+                                    style="margin-left: 61px;width: 60%;" #RollId="ngModel"
+                                    [(ngModel)]="selecteddelivery" id="selecteddelivery">
+                                    <option [ngValue]="prd.Value" *ngFor="let prd of this.DeliverToPrecut">
+                                        {{prd.Value}}
+                                    </option>
+                                </select>
+                                <input type="text" [disabled]="toggledeliveryloc" class="form-control textbox"
+                                    style="margin-left: 138px;margin-top: 8px; height: 30px; width: 60%;"
+                                    name="selectnewdeliverylocation" [(ngModel)]="selectnewdeliverylocation">
+
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="button" (click)="enabledeliveryloc()" class="btn buttonPopUp button2"
+                                    style="width: 50%; margin-top: 2px; margin-bottom: 10px; margin-right: 55px;"
+                                    value="Add">
+                            </div>
+                        </div>
+
+                        <!--end comment-->
+                        <div class="row">
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 10px;margin-top: 13px;">
+                                <label for="text" class="col-sm-2 col-form-label">Cust PO</label>
+                                <div class="col-sm-10">
+                                    <input type="text" style="width: 49%; height: 30px; margin-left: 28px;"
+                                        class="form-control" id="selectedcustpo" name="selectedcustpo"
+                                        placeholder="Enter Cust PO" [(ngModel)]="selectedcustpo">
+                                </div>
+                            </div>
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 14px; margin-top: 13px;">
+                                <label for="inputPassword" class="col-sm-2 col-form-label"><span
+                                        style="color: red;">*</span>Qty*Size</label>
+                                <div class="col-sm-10">
+                                    <input type="text" style="width: 49%; height: 30px; margin-left: 27px;"
+                                        class="form-control" name="selectedqtysize" id="selectedqtysize"
+                                        placeholder="Enter Qty x Size" [(ngModel)]="selectedqtysize">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row" style="margin-left: 10px; margin-top: 7px;">
+                            <label for="inputPassword" class="col-sm-2 col-form-label"
+                                style="margin-right: -65px;">Remark</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" style="height: 30px; width: 86%;" id="selectedremarkprecut"
+                                    name="selectedremarkprecut" [(ngModel)]="selectedremarkprecut"
+                                    id="selectedremarkprecut" placeholder="Enter Remark">
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 15px;">
+                            <div class="col-md-4" style="margin-top: 3px;">
+                                <label class="fieldname" for="productDropdown" style="margin-left: 13px;"><span
+                                        style="color: red;">*</span>No of Tag</label>
+                                <select name="selectednooftag" class="dropdowncss2"
+                                    style="margin-left: 55px; width: 60%;" #RollId="ngModel"
+                                    [(ngModel)]="selectednooftag" id="selectednooftag">
+                                    <option value="" disabled selected>Select Number of Tags</option>
+                                    <option [ngValue]="prd.Value" *ngFor="let prd of this.totaltag">
+                                        {{prd.Value}}
+                                    </option>
+                                </select>
+
+                            </div>
+                            <div class="col-sm-2 Center">
+
+                            </div>
+                            <div class="col-md-4" style="margin-top: 5px;">
+                                <label class="fieldname2" for="productDropdown" style="margin-left: 13px;"><span
+                                        style="color: red;">*</span>ACRS_Cert</label>
+                                <select required name="selectedtype" class="dropdowncss2"
+                                    style="margin-left: 50px;width: 60%; " #RollId="ngModel" [(ngModel)]="selectedtype"
+                                    id="selectedtype">
+                                    <option value="" disabled selected>Select ACRS Certificate</option>
+                                    <option value="60601">60601</option>
+                                    <option value="60603">60603</option>
+                                </select>
+
+                            </div>
+                            <div class="col-sm-2">
+
+                            </div>
+                        </div>
+
+                        <div class="p-2 mb-4">
+
+                            <div class="text-center">
+                                <button type="button" class="btn submit" (click)="LoadToxmlPrecut()"
+                                    style="margin-bottom: -20px; margin-top: 10px;">Submit</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table border" style="margin-top: 15px">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr. No.</th>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Qty*Size</th>
+                                    <th scope="col">Deliver To</th>
+                                    <th scope="col">ACRS Cert</th>
+                                    <th scope="col">Remark</th>
+                                    <th scope="col">Cust PO</th>
+                                    <th scope="col">No of Tag</th>
+                                    <!-- <th scope="col">Update</th> -->
+                                    <th scope="col">Delete</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-row-action edit-action" *ngFor="let row of rowsPrecut; let i=index">
+                                    <td>{{i + 1}}</td>
+                                    <td (dblclick)="edit(row,'product')">
+                                        <div class="row" *ngIf="row.editFieldName=='product'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="updatedproduct" name="updatedproduct"
+                                                    class="form-control" />
+                                            </div>
+                                            <div class="col-md-2"
+                                                style="margin-right: 9; margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="update(row, updatedproduct)"
+                                                    class="btn submit" style="color: greenyellow;">✔</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="Cancel(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+                                            <!-- <div class="col-md-2">
+                                                <button type="button" (click)="update(row, updatedproduct)" class="btn submit">Update</button>
+                                                <button type="button" (click)="Cancel(row)" class="btn submit">Cancel</button>
+                                            </div> -->
+
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldName!='product'">
+                                            {{row.product}}
+                                        </div>
+
+                                    </td>
+
+
+                                    <td (dblclick)="edit(row,'qtysize')">
+                                        <div class="row" *ngIf="row.editFieldName=='qtysize'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="updatedqtysize" name="updatedqtysize"
+                                                    class="form-control" />
+                                            </div>
+                                            <div class="col-md-2"
+                                                style="margin-right: 9px; margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="updateqtysize(row, updatedqtysize)"
+                                                    class="btn submit" style="color: greenyellow;">✔</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="Cancel(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldName!='qtysize'">
+                                            {{row.qtysize}}
+                                        </div>
+
+                                    </td>
+
+                                    <td (dblclick)="edit(row,'deliverto')">
+                                        <div class="row" *ngIf="row.editFieldName=='deliverto'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="updateddeliverto"
+                                                    name="updateddeliverto" class="form-control" />
+                                            </div>
+                                            <div class="col-md-2"
+                                                style="margin-right: 9px; margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="updatedeliverto(row, updateddeliverto)"
+                                                    class="btn submit" style="color: greenyellow;">✔</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="Cancel(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldName!='deliverto'">
+                                            {{row.deliverto}}
+                                        </div>
+
+                                    </td>
+                                    <!-- <td >{{row.deliverto}}</td> -->
+                                    <td (dblclick)="edit(row,'acrscert')">
+                                        <div class="row" *ngIf="row.editFieldName=='acrscert'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="updatedacrs" name="updatedacrs"
+                                                    class="form-control" />
+                                            </div>
+                                            <div class="col-md-2"
+                                                style="margin-right: 9px; margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="updatedacrscert(row, updatedacrs)"
+                                                    class="btn submit" style="color: greenyellow;">✔</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="Cancel(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldName!='acrscert'">
+                                            {{row.acrscert}}
+                                        </div>
+
+                                    </td>
+                                    <!-- <td >{{row.acrscert}}</td> -->
+                                    <td (dblclick)="edit(row,'remark')">
+                                        <div class="row" *ngIf="row.editFieldName=='remark'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="updatedremark" name="updatedremark"
+                                                    class="form-control" />
+                                            </div>
+                                            <div class="col-md-2"
+                                                style="margin-right: 9px;margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="updatedremarks(row, updatedremark)"
+                                                    class="btn submit" style="color: greenyellow;">✔</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="Cancel(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldName!='remark'">
+                                            {{row.remark}}
+                                        </div>
+
+                                    </td>
+                                    <!-- <td >{{row.remark}}</td> -->
+                                    <td (dblclick)="edit(row,'custpo')">
+                                        <div class="row" *ngIf="row.editFieldName=='custpo'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="updatedcustpo" name="updatedcustpo"
+                                                    class="form-control" />
+                                            </div>
+                                            <div class="col-md-2"
+                                                style="margin-right: 9px; margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="updatedacustpo(row, updatedcustpo)"
+                                                    class="btn submit" style="color: greenyellow;">✔</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="Cancel(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+
+                                        </div>
+                                        <!-- <div *ngIf="row.editFieldName=='product'">
+                                             <input type="text" [(ngModel)]="row.product" class="form-control"/>
+                                        </div> -->
+                                        <div *ngIf="row.editFieldName!='custpo'">
+                                            {{row.custpo}}
+                                        </div>
+
+                                    </td>
+
+                                    <td>{{row.noOfTag}}</td>
+
+
+                                    <td><button type="button" (click)="deleteprecut(i)"
+                                            class="btn submit">Delete</button></td>
+
+                                </tr>
+
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                    <div class="border p-2">
+                        <div class="row">
+
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 10px;">
+                                <label for="inputPassword" class="col-sm-2 col-form-label"><span
+                                        style="color: red;">*</span>TemplateFile</label>
+                                <div class="col-sm-10">
+                                    <select name="RollId" class="dropdowncss2" style="margin-left: 43px; width: 60%;"
+                                        #RollId="ngModel" [(ngModel)]="selectTemplatePrecut" id="GetSubForm">
+                                        <option value="" disabled selected>Select Template File</option>
+                                        <option value="lib://EXPORT_PROD_WEB/MalasiyaPrecutTag.btw">
+                                            {{PrecutTemplateValue}}
+                                        </option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 14px;">
+                                <label for="inputPassword" class="col-sm-2 col-form-label"><span
+                                        style="color: red;">*</span>PrinterName</label>
+                                <div class="col-sm-10">
+                                    <select name="RollId" class="dropdowncss2" style="margin-left: 43px; width: 60%;"
+                                        #RollId="ngModel" [(ngModel)]="selectedtPrinterPrecut" id="GetSubForm">
+                                        <option value="" disabled selected>Select Printer Name</option>
+                                        <option value="{{this.PDF}}">{{this.PDF}}</option>
+                                        <option value="{{this.pnm}}">{{this.pnm}}</option>
+                                        <option value="{{this.mptp}}">{{this.mptp}}</option>
+                                        <!-- <option [ngValue]="prd.Name" *ngFor="let prd of this.PrinterName">
+                                            {{prd.Name}}
+                                        </option> -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-2 mb-4">
+
+                            <div class="text-center" style="margin-bottom: -30px;">
+
+                                <button type="button" class="btn submit" style="margin: 10px;"
+                                    (click)="resetprecutform()">Reset</button>
+                                <button type="button" class="btn submit" (click)="printexportprecut()"
+                                    style="margin: 10px;">Print</button>
+                                <p *ngIf="isPrintingStarted">Printing started....</p>
+                                <p *ngIf="isPrintingCompleted">Printing completed....</p>
+                                <!-- <button type="button" class="btn submit" style="margin: 10px;">Stop</button> -->
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--Sample mesh export tag generation-->
+        <div *ngIf="isSampleMeshVisible">
+            <div class="row">
+                <div class="col-md-12 p-3 border">
+
+                    <div class="border p-2">
+                        <!--start -->
+
+                        <div class="row">
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 10px;margin-top: 13px;">
+                                <label class="col-sm-3 col-form-label"><span
+                                        style="color: red; font-weight: bold;">*</span>Enter SO Number :</label>
+                                <input type="text" class="form-control"
+                                    style="margin-left: 20px;margin-top: 8px;height: 30px;width: 39%;"
+                                    [(ngModel)]="SONumber" id="SONumber" name="SONumber" placeholder="Enter SO Number">
+                            </div>
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 14px; margin-top: 13px;">
+                                <label class="col-sm-3 col-form-label">Enter Item Number :</label>
+                                <input type="text" class="form-control textbox"
+                                    style="margin-left: 20px;margin-top: 8px;height: 30px;width: 39%;"
+                                    [(ngModel)]="ItemNumber" id="ItemNumber" for="itemnumber" name="ItemNumber"
+                                    placeholder="Enter Item Number">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <!-- <div class="col-md-4">
+                                <label class="fieldname" for="sampleproductDropdown" style="margin-left: 14px;"><span
+                                        style="color: red;">*</span>Product</label>
+                                <select name="sampleselectedproduct" (change)="disablesampleNewProduct()"
+                                    class="dropdowncss2" style="margin-left: 69px; width: 60%;" #RollId="ngModel"
+                                    [(ngModel)]="sampleselectedproduct" id="sampleselectedproduct">
+                                    <option [ngValue]="prd.Value" *ngFor="let prd of this.sampleproductmesh">
+                                        {{prd.Value}}
+                                    </option>
+                                </select>
+                                <input type="text" [disabled]="togglebuttonproductsample" class="form-control"
+                                    style="margin-left: 137px;margin-top: 8px; height: 30px; width: 60%;"
+                                    name="sampleselectnewproduct" [(ngModel)]="sampleselectnewproduct">
+                            </div>
+                            <div class="col-sm-2 Center">
+                                <input type="button" class="btn buttonPopUp" (click)="enablenewproductprecutsample()"
+                                    style="width: 50%;margin-right: 55px;margin-top: 2px; margin-bottom: 10px;"
+                                    value="Add">
+                            </div> -->
+
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 14px; margin-top: 13px;">
+                                <label class="col-sm-3 col-form-label" for="sampleproductDropdown">
+                                    <span style="color: red;">*</span>OrdType</label>
+                                <select name="sampleselectedOrderType" class="dropdowncss2"
+                                    (change)="disablesampleNewOrderType()"
+                                    style="margin-left: 17px;margin-top: 8px;height: 30px;width: 39%;" #RollId="ngModel"
+                                    [(ngModel)]="sampleselectedOrderType" id="sampleselectedOrderType">
+                                    <option [ngValue]="prd.Value" *ngFor="let prd of this.sampleordertype">
+                                        {{prd.Value}}
+                                    </option>
+                                </select>
+                                <input type="text" [disabled]="toggledeliverylocsample" class="form-control textbox"
+                                    style="margin-left: 175px;margin-top: 8px;height: 30px;width: 39%;"
+                                    name="sampleselectnewdeliverylocation"
+                                    [(ngModel)]="selectnewsampleselectedOrderType">
+
+                                <div class="col-sm-2">
+                                    <input type="button" (click)="enablenewOrderType()" class="btn buttonPopUp button2"
+                                        style="width: 50%; margin-top: 2px; margin-bottom: 10px; margin-right: 0px;"
+                                        value="Add">
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-md-4">
+                                <label class="col-sm-3 col-form-label" for="sampleproductDropdown" style="margin-left: 13px;"><span
+                                        style="color: red;">*</span>OrdType</label>
+                                <select name="sampleselectedOrderType" class="dropdowncss2"
+                                    (change)="disablesampleNewOrderType()" style="margin-left: 61px;width: 60%;"
+                                    #RollId="ngModel" [(ngModel)]="sampleselectedOrderType"
+                                    id="sampleselectedOrderType">
+                                    <option [ngValue]="prd.Value" *ngFor="let prd of this.sampleordertype">
+                                        {{prd.Value}}
+                                    </option>
+                                </select>
+                                <input type="text" [disabled]="toggledeliverylocsample" class="form-control textbox"
+                                    style="margin-left: 138px;margin-top: 8px; height: 30px; width: 60%;"
+                                    name="sampleselectnewdeliverylocation"
+                                    [(ngModel)]="selectnewsampleselectedOrderType">
+
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="button" (click)="enablenewOrderType()" class="btn buttonPopUp button2"
+                                    style="width: 50%; margin-top: 2px; margin-bottom: 10px; margin-right: 55px;"
+                                    value="Add">
+                            </div> -->
+                        </div>
+
+
+                        <!--end comment-->
+                        <!-- <div class="row">
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 10px;margin-top: 13px;">
+                                <label for="text" class="col-sm-2 col-form-label">Req Date</label>
+                                <div class="col-sm-10">
+                                    <input type="date" style="width: 49%; height: 30px; margin-left: 28px;"
+                                        class="form-control" id="reqdate" name="reqdate" placeholder="select date"
+                                        [(ngModel)]="reqdate">
+                                        
+                                </div>
+                            </div>
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 14px; margin-top: 13px;">
+                                <label for="inputPassword" class="col-sm-2 col-form-label"><span style="color: red;">*</span>Qty*Size</label>
+                                <div class="col-sm-10">
+                                    <input type="text" style="width: 49%; height: 30px; margin-left: 27px;"
+                                        class="form-control" name="selectedqtysizesample" id="selectedqtysizesample" placeholder="Enter Qty x Size"
+                                        [(ngModel)]="selectedqtysizesample">
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group row" style="margin-left: 10px; margin-top: 7px;">
+                            <label for="inputPassword" class="col-sm-2 col-form-label"
+                                style="margin-right: -65px;">Remark</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" style="height: 30px; width: 86%;"
+                                    id="sampleselectedremarkprecut" name="sampleselectedremarkprecut" [(ngModel)]="sampleselectedremarkprecut" id="sampleselectedremarkprecut" placeholder="Enter Remark">
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="row" style="margin-top: 15px;">
+                            <div class="col-md-4" style="margin-top: 3px;">
+                                <label class="fieldname" for="productDropdown" style="margin-left: 13px;"><span style="color: red;">*</span>No of Tag</label>
+                                <select name="sampleselectednooftag" class="dropdowncss2"
+                                    style="margin-left: 55px; width: 60%;" #RollId="ngModel"
+                                    [(ngModel)]="sampleselectednooftag" id="sampleselectednooftag">
+                                    <option value="" disabled selected>Select Number of Tags</option>
+                                    <option [ngValue]="prd.Value" *ngFor="let prd of this.totaltag">
+                                        {{prd.Value}}
+                                    </option>
+                                </select>
+
+                            </div>
+                            <div class="col-sm-2 Center">
+
+                            </div>
+                            <div class="col-md-4 form-group row" style="margin-left: 14px; margin-top: 5px;">
+                                <label for="inputPassword" class="col-sm-2 col-form-label"><span style="color: red;">*</span>EuroCode</label>
+                                <div class="col-sm-10">
+                                    <input type="text" style="width: 76%; height: 30px; margin-left: 55px;"
+                                        class="form-control" name="selectedEurocode" id="selectedEurocode" placeholder="Enter Euro Code"
+                                        [(ngModel)]="selectedEurocode">
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-2">
+
+                            </div>
+                        </div> -->
+
+                        <div class="p-2 mb-4">
+
+                            <div class="text-center">
+                                <button type="button" class="btn submit" (click)="LoadToxmlPrecutSample()"
+                                    style="margin-bottom: -20px; margin-top: 10px;">Submit</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table border" style="margin-top: 15px">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Sr. No.</th>
+                                    <th scope="col">Order No</th>
+                                    <th scope="col">Item Number</th>
+                                    <th scope="col">Customer Name</th>
+                                    <th scope="col">Product Code</th>
+                                    <th scope="col">Order Type</th>
+                                    <th scope="col">Euro Code</th>
+                                    <th scope="col">Qty</th>
+                                    <th scope="col">Size</th>
+                                    <th scope="col">Req Date</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let pm of LoadToxmlPrecutSampleExport; let i = index">
+                                    <td>{{ i + 1 }}</td> 
+                                    <td>{{ pm.Order_No  }}</td>  
+                                    <td>{{ pm.Item_No  }}</td> 
+                                    <td>{{ pm.Cust_Name  }}</td> 
+                                    <td>{{ pm.Product_Code }}</td>
+                                    <td>{{ this.sampleselectedOrderType }}</td>
+                                    <td>{{ pm.Euro_Code }}</td> 
+                                    <td>{{ pm.Qty }}</td> 
+                                    <td>{{ pm.Size  }}</td>
+                                    <td>{{ pm.Req_Date }}</td> 
+                                    <td>
+                                        <button type="button" (click)="deleteprecutsample(i)"
+                                            class="btn submit">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <!-- <tbody>
+                                <tr class="table-row-action edit-action"
+                                    *ngFor="let row of rowsPrecutSample; let i=index">
+                                    <td>{{i + 1}}</td>
+                                    <td (dblclick)="edit(row,'product')">
+                                        <div class="row" *ngIf="row.editFieldName=='product'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="updatedproduct" name="updatedproduct"
+                                                    class="form-control" />
+                                            </div>
+                                            <div class="col-md-2"
+                                                style="margin-right: 9; margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="update(row, updatedproduct)"
+                                                    class="btn submit" style="color: greenyellow;">✔</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="Cancel(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+                                          
+                                        </div>
+                                       
+                                        <div *ngIf="row.editFieldName!='product'">
+                                            {{row.product}}
+                                        </div>
+
+                                    </td>
+
+
+                                    <td (dblclick)="edit(row,'qtysize')">
+                                        <div class="row" *ngIf="row.editFieldName=='qtysize'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="updatedqtysize" name="updatedqtysize"
+                                                    class="form-control" />
+                                            </div>
+                                            <div class="col-md-2"
+                                                style="margin-right: 9px; margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="updateqtysize(row, updatedqtysize)"
+                                                    class="btn submit" style="color: greenyellow;">✔</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="Cancel(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+
+                                        </div>
+                                         
+                                        <div *ngIf="row.editFieldName!='qtysize'">
+                                            {{row.qtysize}}
+                                        </div>
+
+                                    </td>
+
+                                    <td (dblclick)="edit(row,'deliverto')">
+                                        <div class="row" *ngIf="row.editFieldName=='deliverto'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="updateddeliverto"
+                                                    name="updateddeliverto" class="form-control" />
+                                            </div>
+                                            <div class="col-md-2"
+                                                style="margin-right: 9px; margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="updatedeliverto(row, updateddeliverto)"
+                                                    class="btn submit" style="color: greenyellow;">✔</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="Cancel(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+
+                                        </div>
+                                        
+                                        <div *ngIf="row.editFieldName!='deliverto'">
+                                            {{row.ordertype}}
+                                        </div>
+
+                                    </td>
+                                    
+                                    <td (dblclick)="edit(row,'acrscert')">
+                                        <div class="row" *ngIf="row.editFieldName=='acrscert'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="updatedacrs" name="updatedacrs"
+                                                    class="form-control" />
+                                            </div>
+                                            <div class="col-md-2"
+                                                style="margin-right: 9px; margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="updatedacrscert(row, updatedacrs)"
+                                                    class="btn submit" style="color: greenyellow;">✔</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="Cancel(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+
+                                        </div>
+                                       
+                                        <div *ngIf="row.editFieldName!='acrscert'">
+                                            {{row.eurocode}}
+                                        </div>
+
+                                    </td>
+                                    
+                                    <td (dblclick)="edit(row,'remark')">
+                                        <div class="row" *ngIf="row.editFieldName=='remark'">
+                                            <div class="col-md-6">
+                                                <input type="text" [(ngModel)]="updatedremark" name="updatedremark"
+                                                    class="form-control" />
+                                            </div>
+                                            <div class="col-md-2"
+                                                style="margin-right: 9px;margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="updatedremarks(row, updatedremark)"
+                                                    class="btn submit" style="color: greenyellow;">✔</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="Cancel(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+
+                                        </div>
+                                        
+                                        <div *ngIf="row.editFieldName!='remark'">
+                                            {{row.remark}}
+                                        </div>
+
+                                    </td>
+                                   
+                                    <td (dblclick)="edit(row,'custpo')">
+                                        <div class="row" *ngIf="row.editFieldName=='custpo'">
+                                            <div class="col-md-6">
+                                                <input type="date" [(ngModel)]="updatedcustpo" name="updatedcustpo"
+                                                    class="form-control" />
+                                            </div>
+                                            <div class="col-md-2"
+                                                style="margin-right: 9px; margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="updatedacustpo(row, updatedcustpo)"
+                                                    class="btn submit" style="color: greenyellow;">✔</button>
+
+                                            </div>
+                                            <div class="col-md-2" style="margin-left: 2px; margin-top: 1px;">
+                                                <button type="button" (click)="Cancel(row)" class="btn submit"
+                                                    style="width: 10px; color: red;">X</button>
+                                            </div>
+
+                                        </div>
+                                        
+                                        <div *ngIf="row.editFieldName!='custpo'">
+                                            {{row.reqdate}}
+                                        </div>
+
+                                    </td>
+
+                                    <td>{{row.noOfTag}}</td>
+
+
+                                    <td><button type="button" (click)="deleteprecutsample(i)"
+                                            class="btn submit">Delete</button></td>
+
+                                </tr>
+
+                            </tbody> -->
+
+
+                        </table>
+                    </div>
+                    <div class="border p-2">
+                        <div class="row">
+
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 10px;">
+                                <label for="inputPassword" class="col-sm-2 col-form-label"><span
+                                        style="color: red;">*</span>TemplateFile</label>
+                                <div class="col-sm-10">
+                                    <select name="RollId" class="dropdowncss2" style="margin-left: 43px; width: 80%;"
+                                        #RollId="ngModel" [(ngModel)]="selectTemplatePrecut" id="GetTemplatePrecutForm" name="GetTemplatePrecutForm">
+                                        <option value="" disabled >Select Template File</option>
+                                        <option selected value="lib://EXPORT_PROD_WEB/SampleMeshPrecutTag.btw">
+                                            {{PrecutTemplateValue}}
+                                        </option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 p-2 form-group row" style="margin-left: 14px;">
+                                <label for="inputPassword" class="col-sm-2 col-form-label"><span
+                                        style="color: red;">*</span>PrinterName</label>
+                                <div class="col-sm-10">
+                                    <select name="RollId" class="dropdowncss2" style="margin-left: 43px; width: 60%;"
+                                        #RollId="ngModel" [(ngModel)]="selectedtPrinterPrecut" id="GetSubForm">
+                                        <option value="" disabled >Select Printer Name</option>
+                                        <option value="{{this.PDF}}">{{this.PDF}}</option>
+                                        <option selected value="{{this.pnm}}">{{this.pnm}}</option>
+                                        <option value="{{this.mptp}}">{{this.mptp}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-2 mb-4">
+
+                            <div class="text-center" style="margin-bottom: -30px;">
+
+                                <button type="button" class="btn submit" style="margin: 10px;"
+                                    (click)="resetprecutsampleform()">Reset</button>
+                                <button type="button" class="btn submit" (click)="printexportprecutsample()"
+                                    style="margin: 10px;">Print</button>
+                                <p *ngIf="isPrintingStarted">Printing started....</p>
+                                <p *ngIf="isPrintingCompleted">Printing completed....</p>
+                                <!-- <button type="button" class="btn submit" style="margin: 10px;">Stop</button> -->
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--Sample mesh export tag generation-->
+
+    </form>
+    <br>
+</div>

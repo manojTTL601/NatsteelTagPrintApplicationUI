@@ -1,0 +1,201 @@
+.SelectRunNo {
+    height: 150px;
+    border: 1px solid rgb(199, 198, 198);
+    overflow: auto;
+  }
+  
+  .SelectRunNo2 {
+    height: 150px;
+    border: 1px solid rgb(199, 198, 198);
+    overflow: auto;
+  }
+  
+  .SelectFirstWorkCenter{
+    height: 150px;
+    border: 1px solid rgb(199, 198, 198);
+    overflow: auto;
+  }
+  
+  fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+  }
+  
+  legend.scheduler-border {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+  }
+  
+  .responsive {
+    width: 100%;
+    height: 400px;
+  }
+  
+  .buttonPopUp ,.buttonPopDown{
+    background-color: lightblue;
+    color: #fff;
+    width: auto;
+    float: right;
+    margin-left: 5px;
+    font-size: 100%;
+    color: #000;
+    border-bottom: 2px solid #808080;
+    font-weight: 500;
+  }
+  
+
+  .buttonPopUp:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+
+  .buttonPopUp {
+  min-width:70px;
+  }
+  .submit
+  {
+    background-color: lightblue;
+    color: #fff;
+    width: 10%;
+    font-size: 100%;
+    color: #000;
+    border-bottom: 2px solid #808080; 
+    font-weight: 500;
+    margin-bottom: 10px;
+    transition: 0.2s all;
+    
+  }
+  .submitupdate
+  {
+    background-color: lightblue;
+    
+    width: 10%;
+    color: #fff;
+    width: 10%;
+    font-size: 100%;
+    color: #000;
+    border-bottom: 2px solid #808080; 
+    font-weight: 500;
+    margin-bottom: 10px;
+    transition: 0.2s all;
+  }
+  .submitupdate:active{
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+  }
+
+  .submit:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+
+  .submit
+  {
+    min-width:70px;
+  }
+  .border2
+  {
+    padding: 5px;
+    border-style: solid;
+  border-width: 1px;
+  }
+  
+  /* .buttonPopUp:hover{
+  cursor: pointer;
+  border-bottom: 2px solid #808080;
+  } */
+  
+  .buttonPopDown:hover, .buttonPopUp:hover{
+  cursor: pointer;
+  border-bottom: 2px solid #808080;
+  }
+  .chechboxlist{
+  font-size: 14px; border-radius: 5px;  border: 1px solid #808080;
+  }
+  
+  input[type=checkbox]{
+  background-color: rgb(118, 206, 236);
+  border-color:rgb(118, 206, 236);
+  accent-color: #000000;
+  /* border-color:rgb(224, 77,77) ; */
+  }
+  
+  .dropdowncss{
+  
+  height: 30px;
+  margin-left: 10px;
+  border-radius: 5px;
+  border-color: #c6c6c6;
+  padding: 3px;
+  font-size: 13px;
+  
+  }
+  
+  .dropdowncss:focus {
+  outline: none !important;
+  border:1px solid rgb(166, 171, 241);
+  box-shadow: 0 0 10px #719ECE;
+  }
+  
+  .dropdowncssRange{
+    width: 80%;
+    height: 35px;
+    border-radius: 5px;
+    border-color: #c6c6c6;
+    padding: 7px;
+    font-size: 15px;
+    }
+    .tagGenType
+    {
+      vertical-align:4px;
+    }
+    .dropdowncss2{
+      height: 30px;
+      width: 40%;
+      margin-left: 50x;
+      border-radius: 5px;
+      border-color: #c6c6c6;
+      padding: 3px;
+      font-size: 13px;
+    }
+   .fieldname{
+     margin-left: 20px;
+     
+   }
+   .fieldname2
+   {
+    margin-left: 20px;
+   }
+   .button2
+   {
+     margin-right: 100px;
+   }
+   .textbox
+   {
+     margin-top: -13px;
+     height: 30px;
+     margin-left: 110px;
+     width: 40%;
+   }
+   .textbox2
+   {
+    height: 30px;
+    margin-left: 78px;
+    width: 40%;
+   }
+   
+
+   .labelweight
+   {
+     font-size: 16px;
+   }
