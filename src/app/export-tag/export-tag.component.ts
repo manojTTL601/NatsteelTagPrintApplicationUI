@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from './../services/services.service';
-import { NoOfTags, LoadxmlMesh, MalasiyaSirim, MalasiyaPrecut, MalasiyaPrecutsample, PrintersName, totaltags, MeshProduct, PrinterName } from './../services/cabmodel.model';
+import { NoOfTags, LoadxmlMesh, MalasiyaSirim, MalasiyaPrecut, MalasiyaPrecutsample, PrintersName, totaltags, MeshProduct, PrinterName, GetPDFFile } from './../services/cabmodel.model';
 import { NgxSpinnerService } from "ngx-spinner";
 import { AppComponent } from '../app.component';
 import { ActivatedRoute } from '@angular/router';
@@ -91,7 +91,7 @@ export class ExportTagComponent implements OnInit {
   loader = 'assets/img/loader.gif';
 
   constructor(public service: ServicesService,
-    // private SpinnerService: NgxSpinnerService,
+    private SpinnerService: NgxSpinnerService,
     private router: ActivatedRoute,
     private appcomp: AppComponent) {
     this.router.queryParams.subscribe((queryParam: any) => {
@@ -99,6 +99,8 @@ export class ExportTagComponent implements OnInit {
     });
   }
 
+  IsDownload: boolean = false;
+  toggledeliverylocsamplebtn: boolean = false;
   selectedtaggenerationtype: string;
   selectRunnumber: any;
   selectedTagType: string;
@@ -206,8 +208,14 @@ export class ExportTagComponent implements OnInit {
 
   SONumber: any;
   ItemNumber: any;
+  getfile = GetPDFFile.valueExportTagReport;
 
   ngOnInit(): void {
+
+    // this.service.GetGrade2().subscribe(data => {
+    //   alert("ok");
+    // });
+
     this.GetUserDetails(this.user);
     this.url = window.location.href;
     this.splitURL = "EXPORT"; // this.url.split("/", 10)[5].trim().split("?", 5)[0].trim();
@@ -222,6 +230,8 @@ export class ExportTagComponent implements OnInit {
     this.counter = 0;
     this.printcounter = 0;
     //this.GetLibrarian();
+
+    this.getfile = GetPDFFile.valueExportTagReport;
 
 
   }
@@ -328,7 +338,7 @@ export class ExportTagComponent implements OnInit {
   LoadToxmlPrecutSampleExport: any;
   LoadToxmlPrecutSample() {
     debugger;
-    // this.SpinnerService.show('spinner');
+    this.SpinnerService.show('spinner0');
     console.log(this.SONumber);
     console.log(this.sampleselectedOrderType);
     console.log(this.ItemNumber);
@@ -342,23 +352,26 @@ export class ExportTagComponent implements OnInit {
     if (this.sampleselectedOrderType == null || this.sampleselectedOrderType == undefined || this.sampleselectedOrderType == "") {
       this.sampleselectedOrderType = "";
     }
+    if (this.selectnewsampleselectedOrderType != null && this.selectnewsampleselectedOrderType != undefined && this.selectnewsampleselectedOrderType != "") {
+      this.sampleselectedOrderType = this.selectnewsampleselectedOrderType;
+    }
 
     try {
 
       if (this.SONumber != "" && this.sampleselectedOrderType != "") {
-        this.service.LoadToxmlPrecutSampleExport(this.SONumber, this.ItemNumber).subscribe(data => {
+        this.service.LoadToxmlPrecutSampleExport(this.SONumber, this.ItemNumber, this.sampleselectedOrderType).subscribe(data => {
           this.LoadToxmlPrecutSampleExport = data;
 
           if (data == "Record not exist") {
             alert("Record not exist");
-            // this.SpinnerService.hide('spinner');
+            this.SpinnerService.hide('spinner0');
 
           }
           else {
 
           }
           console.log(data);
-          //this.SpinnerService.hide('spinner');
+          this.SpinnerService.hide('spinner0');
 
 
           // this.sampleselectedproduct = "";
@@ -366,13 +379,17 @@ export class ExportTagComponent implements OnInit {
           // this.sampleselectnewproduct = "";
           // this.selectnewsampleselectedOrderType = "";
           // this.GetSampleProduct();
-          // this.GetOrderType();
 
+          this.GetOrderType();
+          this.toggledeliverylocsamplebtn = false;
+          this.toggledeliverylocsample = true;
+          this.selectnewsampleselectedOrderType = "";
+          this.sampleselectedOrderType = "";
         });
       }
 
       else {
-        // this.SpinnerService.hide('spinner');
+        this.SpinnerService.hide('spinner0');
         alert("Please fill all the required fields. * indicates required field.");
         return;
       }
@@ -881,9 +898,10 @@ export class ExportTagComponent implements OnInit {
     this.sampleselectednooftag = "";
     this.selectedEurocode = "";
 
-    this.LoadToxmlPrecutSampleExport = "";
+    this.LoadToxmlPrecutSampleExport = [];
     this.SONumber = "";
     this.ItemNumber = "";
+
 
   }
 
@@ -915,8 +933,19 @@ export class ExportTagComponent implements OnInit {
     try {
       this.service.GetOrderType().subscribe(data => {
         this.sampleordertype = data;
-        this.sampleselectedOrderType = this.sampleordertype.find(x => x.Value.toLowerCase() == 'sample')?.Value;
-        //  this.selectPrinterName="Select Printer Name";
+        if (this.selectnewsampleselectedOrderType != null && this.selectnewsampleselectedOrderType != undefined && this.selectnewsampleselectedOrderType != "") {
+
+          this.sampleselectedOrderType = this.selectnewsampleselectedOrderType;
+        }
+        else {
+          if (this.LoadToxmlPrecutSampleExport.length > 0) {
+            this.sampleselectedOrderType = "";
+          }
+          else {
+            this.sampleselectedOrderType = this.sampleordertype.find(x => x.Value.toLowerCase() == 'sample')?.Value;
+            //  this.selectPrinterName="Select Printer Name";
+          }
+        }
       });
     }
     catch (err: any) {
@@ -1239,6 +1268,7 @@ export class ExportTagComponent implements OnInit {
   enablenewOrderType() {
     this.toggledeliverylocsample = false;
     this.sampleselectedOrderType = "";
+    this.toggledeliverylocsamplebtn = true;
   }
 
   disabledelivery() {
@@ -1390,10 +1420,10 @@ export class ExportTagComponent implements OnInit {
     this.isPrintingStarted = false;
     this.isPrintingCompleted = false;
     this.tesdemofile = [];
-
+    this.IsDownload = false;
     try {
       if (this.printcounter == 0) {
-        
+
         //         for (let i in this.LoadToxmlPrecutSampleExport) {
         //           this.tesdemofile.push(
         //             {
@@ -1414,26 +1444,34 @@ export class ExportTagComponent implements OnInit {
         //           );
         //         }
         // string SONumber, string ItemNumber, string templatename, string printername
-        
+
         if (this.LoadToxmlPrecutSampleExport.length != 0) {
-          this.ItemNumber = this.LoadToxmlPrecutSampleExport
-            .map(x => x.Item_No)
-            .join(',');
+          this.ItemNumber = this.LoadToxmlPrecutSampleExport.map(x => x.Item_No).join(',');
+
+          var ordertype = this.LoadToxmlPrecutSampleExport[0].Order_Type;
 
           if (this.selectTemplatePrecut != "" && this.selectTemplatePrecut != undefined && this.selectedtPrinterPrecut != "" && this.selectedtPrinterPrecut != undefined) {
             this.counter = 1;
             this.printcounter = 1;
             this.isPrintingStarted = true;
             this.isPrintingCompleted = false;
-            this.service.printexportprecutsampleExport(this.SONumber, this.ItemNumber, this.selectTemplatePrecut, this.selectedtPrinterPrecut).subscribe(data => {
+            this.service.printexportprecutsampleExport(this.SONumber, this.ItemNumber, this.selectTemplatePrecut, this.selectedtPrinterPrecut, ordertype).subscribe(data => {
+
               if (data != "") {
                 this.printcounter = 0;
                 alert(data);
+                if (data == "Printed Successfully.") {
+                  this.IsDownload = true;
+                }
+                else {
+                  this.IsDownload = false;
+                }
                 this.isPrintingCompleted = true;
                 this.isPrintingStarted = false;
               }
-
+              this.ItemNumber = "";
             });
+
           }
           else {
             alert("please select Required field. * indicates required field.");
