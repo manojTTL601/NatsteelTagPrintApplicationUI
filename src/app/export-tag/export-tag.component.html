@@ -1,7 +1,8 @@
 <div class="container" style="font-size:14px ;">
-     <ngx-spinner name="spinner" bdColor = "rgba(51, 51, 51, 0.8)" size = "large" color = "#fff" type = "square-jelly-box" [fullScreen] = "true">
-            <img alt="Loading Please Wait..." style="width:100px ; height:100px ;" src="{{loader}}" /> </ngx-spinner>
-    
+    <ngx-spinner name="spinner0" bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="square-jelly-box"
+        [fullScreen]="true">
+        <img alt="Loading Please Wait..." style="width:100px ; height:100px ;" src="{{loader}}" /> </ngx-spinner>
+
     <form autocomplete="off" style="height: auto;">
 
         <!--start: tab in bootstrap-->
@@ -942,7 +943,7 @@
 
                             <div class="col-md-6 p-2 form-group row" style="margin-left: 14px; margin-top: 13px;">
                                 <label class="col-sm-3 col-form-label" for="sampleproductDropdown">
-                                    <span style="color: red;">*</span>OrdType</label>
+                                    <span style="color: red;">*</span>Order Type</label>
                                 <select name="sampleselectedOrderType" class="dropdowncss2"
                                     (change)="disablesampleNewOrderType()"
                                     style="margin-left: 17px;margin-top: 8px;height: 30px;width: 39%;" #RollId="ngModel"
@@ -957,7 +958,7 @@
                                     [(ngModel)]="selectnewsampleselectedOrderType">
 
                                 <div class="col-sm-2">
-                                    <input type="button" (click)="enablenewOrderType()" class="btn buttonPopUp button2"
+                                    <input [disabled]="toggledeliverylocsamplebtn" type="button" (click)="enablenewOrderType()" class="btn buttonPopUp button2"
                                         style="width: 50%; margin-top: 2px; margin-bottom: 10px; margin-right: 0px;"
                                         value="Add">
                                 </div>
@@ -1076,16 +1077,16 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let pm of LoadToxmlPrecutSampleExport; let i = index">
-                                    <td>{{ i + 1 }}</td> 
-                                    <td>{{ pm.Order_No  }}</td>  
-                                    <td>{{ pm.Item_No  }}</td> 
-                                    <td>{{ pm.Cust_Name  }}</td> 
+                                    <td>{{ i + 1 }}</td>
+                                    <td>{{ pm.Order_No }}</td>
+                                    <td>{{ pm.Item_No }}</td>
+                                    <td>{{ pm.Cust_Name }}</td>
                                     <td>{{ pm.Product_Code }}</td>
-                                    <td>{{ this.sampleselectedOrderType }}</td>
-                                    <td>{{ pm.Euro_Code }}</td> 
-                                    <td>{{ pm.Qty }}</td> 
-                                    <td>{{ pm.Size  }}</td>
-                                    <td>{{ pm.Req_Date }}</td> 
+                                    <td>{{ pm.Order_Type }}</td>
+                                    <td>{{ pm.Euro_Code }}</td>
+                                    <td>{{ pm.Qty }}</td>
+                                    <td>{{ pm.Size }}</td>
+                                    <td>{{ pm.Req_Date }}</td>
                                     <td>
                                         <button type="button" (click)="deleteprecutsample(i)"
                                             class="btn submit">Delete</button>
@@ -1268,8 +1269,9 @@
                                         style="color: red;">*</span>TemplateFile</label>
                                 <div class="col-sm-10">
                                     <select name="RollId" class="dropdowncss2" style="margin-left: 43px; width: 80%;"
-                                        #RollId="ngModel" [(ngModel)]="selectTemplatePrecut" id="GetTemplatePrecutForm" name="GetTemplatePrecutForm">
-                                        <option value="" disabled >Select Template File</option>
+                                        #RollId="ngModel" [(ngModel)]="selectTemplatePrecut" id="GetTemplatePrecutForm"
+                                        name="GetTemplatePrecutForm">
+                                        <option value="" disabled>Select Template File</option>
                                         <option selected value="lib://EXPORT_PROD_WEB/SampleMeshPrecutTag.btw">
                                             {{PrecutTemplateValue}}
                                         </option>
@@ -1283,7 +1285,7 @@
                                 <div class="col-sm-10">
                                     <select name="RollId" class="dropdowncss2" style="margin-left: 43px; width: 60%;"
                                         #RollId="ngModel" [(ngModel)]="selectedtPrinterPrecut" id="GetSubForm">
-                                        <option value="" disabled >Select Printer Name</option>
+                                        <option value="" disabled>Select Printer Name</option>
                                         <option value="{{this.PDF}}">{{this.PDF}}</option>
                                         <option selected value="{{this.pnm}}">{{this.pnm}}</option>
                                         <option value="{{this.mptp}}">{{this.mptp}}</option>
@@ -1300,6 +1302,8 @@
                                     (click)="resetprecutsampleform()">Reset</button>
                                 <button type="button" class="btn submit" (click)="printexportprecutsample()"
                                     style="margin: 10px;">Print</button>
+                                <a class="btn submit" [hidden]="!IsDownload"  style="margin: 10px;" href={{this.getfile}}>Download</a>
+
                                 <p *ngIf="isPrintingStarted">Printing started....</p>
                                 <p *ngIf="isPrintingCompleted">Printing completed....</p>
                                 <!-- <button type="button" class="btn submit" style="margin: 10px;">Stop</button> -->
